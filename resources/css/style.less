@@ -1,0 +1,37 @@
+// VARIABLES */
+
+@black: #323331;
+@white: #fafafa;
+
+
+// MIXINS
+
+
+.serif() {
+	font-family: Georgia, 'Times New Roman', serif;
+}
+
+.sans-serif() {
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+.monospaced() {
+	font-family: 'Courier New', monospace;
+	font-weight: 500;
+}
+
+
+
+// STYLING 
+body {
+	background-color: @black;
+	text-align: center;
+}
+
+h1 {
+	color: @white;
+	.monospaced;
+	margin-top: 100px;
+
+}
+
