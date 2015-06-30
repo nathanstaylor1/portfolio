@@ -1,0 +1,54 @@
+
+----------------------------// GENERAL DESIGN //------------------------------------
+
+	- A lot of interactive elements ( edit various design elements )
+	- Use of images to convey emotions
+	- Interesting and surprising elements within convention
+	- 
+
+	possible color schemes:
+
+		-
+
+
+----------------------------// PAGE SPECIFIC //------------------------------------
+
+........-~<*| H O M E |*>~-........ 
+	
+	- Vertical scrolling
+	- parralax sections
+	- moving elements as you scroll
+	- 
+
+
+
+........-~<*| W O R K |*>~-........ 
+	
+	- images of key sections of pages
+	- 
+	-
+	-
+
+
+........-~<*| P L A Y |*>~-........ 
+	
+	- modal which comes out to play games etc.
+	- 
+	-
+	-
+
+
+
+........-~<*| B L O G |*>~-........ 
+	
+	- standard blog layout
+	-
+	-
+	-
+
+........-~<*| CONTACT |*>~-........ 
+	
+	-  
+	-
+	-
+	-
