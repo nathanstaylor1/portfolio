@@ -48,7 +48,16 @@ a:active { color: #EC173A; }
 
 body {
 	font-size: 62.5%;
+	background-color: #fafafa;
+	width: 100vw;
+	height: 100vh;
 }
+
+html * {
+	max-width: 100vw;
+	max-height: 100vh;
+	overflow: hidden;
+} 
 
 /*_-+=+-__-^-__-+=+-__-^-__-+=+-__-^-__-+=+-__-^-__-+=+-__-^-__-+=+-__-^-_
 
@@ -56,20 +65,29 @@ body {
 
 /*_-+=+-__-^-__-+=+-__-^-__-+=+-__-^-__-+=+-__-^-__-+=+-__-^-__-+=+-__-^-_*/
 
+#game{
+	position: absolute;
+}
+
 #menu {
-	top: 175px;
+	top: 20vw;
 	z-index: 10;
 	position: absolute;
-	background-color: white;
-	opacity: 0.95;
-	border: 1px solid #1E33E6;
-	border-radius: 15px;
-	width: 250px;
-	height: 250px;
-	left: 450px;
+	background-color: #fafafa;
+	opacity: 0.5;
+	border: 1px solid #F36253;
+	border-radius: 3vw;
+	width: 50vw;
+	height: 40vw;
+	left: 25vw;
 	box-shadow: 0px 0px 20px #0E175B;
 	display: none;
+    -webkit-transition: opacity 1s;
+    transition: opacity 1s;
+}
 
+#menu:hover{
+	opacity: 1;
 }
 
 #menu button{
@@ -77,78 +95,77 @@ body {
 	margin: auto;
 	background-color: transparent;
 	border: none;
-	font-size: 30px;
-	line-height: 40px;
-	margin-top: 25px;
+	font-size: 4vw;
+	line-height: 6vw;
+	margin-top: 3vw;
 	font-family:'Helvetica Neue',sans-serif;
 	color: #0E175B;
 }
 
 #menu button:hover{
 
-	background-color: #E33F02;
-	color: white;
+	background-color: #F36253;
+	color: #fafafa;
 
 }
 
 
 #board {
-	margin-top: 100px;
+	margin-top: 5vw;
 	z-index: 2;
 }
 
 #board table{
-	margin-left: 400px; 
-	height: 300px;
-	width: 350px;
+	margin-left: 15vw; 
+	height: 60vw;
+	width: 60vw;
 	border-collapse: collapse;
 }
 
 #board td > div{
-	height: 50px;
-	width: 50px;
+	height: 10vw;
+	width: 10vw;
 	overflow: hidden;
 }
 
 #board td > div > div {
 	border-radius: 50%;
-	height: 44px;
-	width: 44px;
-	border: #1E33E6 20px solid;
-	margin-left: -17px;
-	margin-top: -17px;
+	height: 8.8vw;
+	width: 8.8vw;
+	border: #61C8DF 4vw solid;
+	margin-left: -3.4vw;
+	margin-top: -3.4vw;
 	z-index: 2;
 }
 
 #line {
 	position: absolute;
 	z-index: 3;
-	margin-left: 400px; 
-	margin-top: 50px;
+	margin-left: 15vw; 
+	margin-top: 10vw;
+}
+
+#lineCanvas{
+	position: absolute;
+	top: 5vw;
+	width: 70vw;
+	height: 60vw;
 }
 
 #board tr:first-child > td > div > div{
-	border: white 20px solid;
-}
-
-#board.won.red td > div > div {
-	/*border: #E33F02 20px solid;*/
-}
-
-#board.won.yellow td > div > div {
-	/*border: #FFDE06 20px solid;*/
+	border: #fafafa 4vw solid;
 }
 
 
 #board.free tr:first-child > td > div > div:hover{
-	background-color: #FFDE06;
+	background-color: #FFF728;
 }
 #board.free.red tr:first-child > td > div > div:hover{
-	background-color: #E33F02;
+	background-color: #F36253;
 }
 
 #board.free.won tr:first-child > td > div > div:hover{
-	background-color: white;
+	background-color: #fafafa;
 }
 
 #pieces {
@@ -164,17 +181,18 @@ body {
 .piece {
 	position: absolute;
 	display: none;
-	height: 46px;
-	width: 46px;
-	border-radius: 46px;
+	height: 9vw;
+	width: 9vw;
+	border-radius: 9vw;
 	z-index: -1;
+	top: 5vw;
 }
 
 .piece.red {
-	background-color: #E33F02;
+	background-color: #F36253;
 }
 .piece.yellow {
-	background-color: #FFDE06;
+	background-color: #FFF728;
 }
 .piece.black {
 	background-color: black;

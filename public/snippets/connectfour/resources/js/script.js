@@ -472,8 +472,10 @@ function scoreChain(length){
 
 //display
 
-function drawPiece(row,column,color){
 
+
+function drawPiece(row,column,color){
+	var vw = $(document).width() / 100
 	var won = checkForWin()
 	if (won[0]) $("#board").addClass("won " + color)
 
@@ -482,10 +484,10 @@ function drawPiece(row,column,color){
 
 	$("#pieces").append("<div class = 'piece " + color + "'></div>")
 	var currentPiece = $("#pieces div:last-child")
-	currentPiece.css("left", 352 + 50 * column)
+	currentPiece.css("left", (5.5 + (10 * column)) + "vw")
 	currentPiece.css("display","inline-block")
 
-	currentPiece.animate({top: "+=" + (row * 50 + 2) }, (100 * row ), function(){
+	currentPiece.animate({top: "+=" + ((row * 10) + .5) + "vw"}, (100 * row ), function(){
 		$("#board").addClass("free")
 		if (won[0]) {
 			drawLine(won[1][0], won[1][1])
@@ -499,12 +501,12 @@ function drawPiece(row,column,color){
 }
 
 function drawLine(startPiece, endPiece) {
-
+	var vw = $(document).width() / 100
 	var canvas = document.getElementById('lineCanvas');
     var context = canvas.getContext('2d');
 
-	var startPoint = [(startPiece[1]+ 1) * 50 - 25, (startPiece[0]+ 1) * 50 - 25]
-	var endPoint = [(endPiece[1] + 1) * 50 - 25, (endPiece[0] + 1) * 50 - 25]
+	var startPoint = [(((startPiece[1]+ 1 ) * 10 ) - 5) * vw, (((startPiece[0]+ 1 ) * 10)  - 5)*vw]
+	var endPoint = [(((endPiece[1] + 1 ) * 10 ) - 5)*vw, (((endPiece[0] + 1 ) * 10 ) - 5)*vw]
 
     context.beginPath();
     context.moveTo(startPoint[0], startPoint[1]);
@@ -572,7 +574,7 @@ function runMatch(p1,p2){
 					var i = 0;
 					while( (child = child.previousSibling) != null ) 
 					  i++;
-					var column = Math.floor(i/2) + 1
+					var column = Math.floor(i) + 1
 
 					if (addPiece(column, currentPlayer.color)) {
 
@@ -618,7 +620,7 @@ function runGame(){
 			break;
 		}
 
-		$("#menu").fadeOut(400);
+		$("#menu").fadeOut(500);
 
 		runMatch(p1,p2)
 
@@ -628,6 +630,8 @@ function runGame(){
 
 
 $(document).ready(function(){
+
+
 	runGame()
 
 
