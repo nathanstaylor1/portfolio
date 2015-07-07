@@ -25,17 +25,23 @@
 ........-~<*| W O R K |*>~-........ 
 	
 	- images of key sections of pages
-	- 
-	-
-	-
+	- main page with thumbnails and titles
+	- click to bring up more information and link to snippet
+	- possible paragraphs:
+		
+
 
 
 ........-~<*| P L A Y |*>~-........ 
 	
-	- modal which comes out to play games etc.
-	- 
-	-
-	-
+	- main page with thumbnails and titles
+		-hover on snippet
+			- darken with shader
+			- bring up title and blurb
+			- z-transform image to zoom in
+	- click to bring up more information and link to snippet
+	- possible paragraphs:
+	- animation to move between pages
 
 
 

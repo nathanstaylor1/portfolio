@@ -1,5 +1,21 @@
-/* Parallax base styles
-  --------------------------------------------- */
+//variables -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+@perspective: 1000;
+
+
+//mixins -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
+
+.applyParallax( @depth ){
+    -webkit-transform: translateZ( unit(@depth, px) ) scale( 1 - (@depth / @perspective ) );
+    transform: translateZ( unit(@depth, px) ) scale( 1 - (@depth / @perspective ) );
+}
+
+.translateElementX(@amount){
+  -ms-transform: translateX(@amount);
+  -webkit-transform: translateX(@amount);
+  transform: translateX(@amount);
+}
+
+// Parallax styles -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
 
   .parallax {
     height: 500px; /* fallback for older browsers */
@@ -7,7 +23,7 @@
     overflow-x: hidden;
     overflow-y: auto;
     -webkit-perspective: 300px;
-    perspective: 300px;
+    perspective: unit(@perspective, px);
     -webkit-perspective-origin-x: 100%;
     perspective-origin-x: 100%;
   }
@@ -18,6 +34,21 @@
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
   }
+
+  body, html {
+    overflow: hidden;
+  }
+
+  .parallax__layer .content {
+    text-align: center;
+    position: absolute;
+    left: 00%;
+    top: 30%;
+    width: 100%;
+    color: #fafafa;
+  }
+
+//parrallax layer styles...................................
 
   .parallax__layer {
     position: absolute;
@@ -30,82 +61,32 @@
   }
 
  .parallax__layer--front {
-    -webkit-transform: translateZ(150px) scale(.5);
-    transform: translateZ(150px) scale(.5);
+    .applyParallax(0);
     z-index: 6;
   }
 
   .parallax__layer--fore {
-    -webkit-transform: translateZ(90px) scale(.7);
-    transform: translateZ(90px) scale(.7);
+    .applyParallax(-100);
     z-index: 5;
   }
 
   .parallax__layer--base {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
+    .applyParallax(-200);
     z-index: 4;
   }
 
   .parallax__layer--back {
-    -webkit-transform: translateZ(-300px) scale(2);
-    transform: translateZ(-300px) scale(2);
+    .applyParallax(-400);
     z-index: 3;
   }
 
   .parallax__layer--deep {
-    -webkit-transform: translateZ(-600px) scale(3);
-    transform: translateZ(-600px) scale(3);
+    .applyParallax(-800);
     z-index: 2;
   }
 
-  /* demo styles
-  --------------------------------------------- */
+//parrallax group styles...................................
 
-  body, html {
-    overflow: hidden;
-  }
-
-   /* centre the content in the parallax layers */
-  .content {
-    text-align: center;
-    position: absolute;
-    left: 00%;
-    top: 30%;
-    width: 100%;
-    color: #fafafa;
-  }
-
-  .content.left {
-    left: 0%;
-    width: 60%;
-    text-align: left;
-  }
-
- .content.right {
-    left: 50%;
-    width: 45%;
-    text-align: right;
-  }
-  .content .keywords {
-    text-align: center;
-  }
-
-  .content.higher {
-    top: 20%;
-  }
-
- .content.lower {
-    top: 90%;
-  }
-
- .content.below {
-    top: 120%;
-  }
-
-
-  /* style the groups
-  --------------------------------------------- */
   #group1 {
     height: 100vh;
   }
@@ -121,8 +102,50 @@
     opacity: 0.5;
   }
 
-  /* misc
-  --------------------------------------------- */
+// Navbar -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+//navbar toggle button...................................
+
+  //toggle animation
+
+  @keyframes navbartoggle {
+    0% {.translateElementX(0%); opacity: 1; };
+    100% {.translateElementX(60px); opacity: 0; };
+  }
+
+#navbarToggle {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  width: 30px;
+  height: 24px;
+
+  div.rectangle{
+      background-color: black;
+      display: block;
+      width: 100%;
+      height: 15%;
+      margin-bottom: 20%;
+      animation-duration: .6s;
+      animation-fill-mode: forwards;
+        &:nth-child(2){ animation-delay: 0.2s}
+        &:nth-child(3){ animation-delay: 0.4s}
+  }
+
+  &.moveOut div  {
+      animation-name: navbartoggle;
+  }
+
+  &.moveIn div {
+      animation-name: navbartoggle;
+      animation-direction: reverse;
+  }
+
+
+}
+
+// Other -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
 body {
   background-color: #fafafa;
 }

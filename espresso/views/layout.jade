@@ -1,0 +1,43 @@
+doctype html
+html
+  head
+    title= title
+
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/animate.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+    script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+    script(src='/bootstrap/js/bootstrap.min.js')
+    script(src='/js/modernizr.js')
+    script(src='/js/script.js')
+    
+  body
+
+    header
+      nav.navbar.navbar-fixed-top
+        .container-fluid.text-center.nav-link-holder.show.hide-mid-document
+          .link-holder
+            a(href="/").inverse HOME
+          .link-holder  
+            a(href="/work").inverse WORK        
+          .link-holder  
+            a(href="/play").inverse PLAY
+          .link-holder  
+            a(href="/blogposts/").inverse BLOG       
+
+        #navbarToggle.show-mid-document
+          .shape.rectangle.inverse
+          .shape.rectangle.inverse
+          .shape.rectangle.inverse
+
+    block content
+
+    footer.footer
+      .container-fluid.text-center
+        .row
+          .col-xs-12            
+            p Hire me: nathanstaylor1@gmail.com
+
+
+        

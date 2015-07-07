@@ -1,0 +1,15 @@
+extends ../layout
+block content
+  .container-fluid.full-height.text-center#play-image.img-back.rel.play-page
+    .shader.full-fit
+    h3.loud.rel.tagline Sprite Wars
+    .intro-holder
+      .intro-back.full-fit
+      p.reading.intro
+        |- what is it?<br>
+        |- How did I make it?<br>
+        |- Challenges.<br>
+        |- What can be improved.<br>
+
+    #wrap 
+      iframe(src = '/play/snippets/spritewars/').light.spritewarsFrame#frame

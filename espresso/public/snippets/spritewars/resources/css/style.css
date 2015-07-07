@@ -1,0 +1,221 @@
+/*_-+=+-__-^-__-+=+-__-^-__-+=+-__-^-__-+=+-__-^-__-+=+-__-^-__-+=+-__-^-_
+
+						COLOR INDEX
+
+/*_-+=+-__-^-__-+=+-__-^-__-+=+-__-^-__-+=+-__-^-__-+=+-__-^-__-+=+-__-^-_
+
+# /*
+# white: #fafafa;
+# black: #333333;
+# 
+# 
+# 
+# 
+# # */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+
+/*_-+=+-__-^-__-+=+-__-^-__-+=+-__-^-__-+=+-__-^-__-+=+-__-^-__-+=+-__-^-_
+
+						GENERAL SELECTORS
+
+/*_-+=+-__-^-__-+=+-__-^-__-+=+-__-^-__-+=+-__-^-__-+=+-__-^-__-+=+-__-^-_*/
+
+
+a:link { color: #333333; text-decoration: none; font-family: sans-serif;}
+a:visited { color: #333333; text-decoration: none;}
+a:hover { color: #fafafa; }
+a:active { color: #EC173A; }
+
+
+body {
+	background-color: #D0E4ED
+}
+
+img {
+	position: absolute;
+
+	image-rendering: optimizeSpeed;             /* FUCK SMOOTHING, GIVE ME SPEED  */
+    image-rendering: -moz-crisp-edges;          /* Firefox                        */
+    image-rendering: -o-crisp-edges;            /* Opera                          */
+    image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+    image-rendering: pixelated; 				/* Chrome */
+    image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
+    -ms-interpolation-mode: nearest-neighbor;   /* IE8+                           */
+}
+
+table {
+	border-collapse: collapse;
+}
+
+/*_-+=+-__-^-__-+=+-__-^-__-+=+-__-^-__-+=+-__-^-__-+=+-__-^-__-+=+-__-^-_
+
+						ID
+
+/*_-+=+-__-^-__-+=+-__-^-__-+=+-__-^-__-+=+-__-^-__-+=+-__-^-__-+=+-__-^-_*/
+
+
+#actors{
+	width: 100%;
+}
+
+#actors div{
+	position: absolute;
+	z-index: 3;
+	margin-top: 7px;
+}
+
+#background {
+	position: absolute;
+	width: 100%;
+	z-index: 2;
+
+}
+
+#attacks {
+	position: absolute;
+	z-index: 1;
+
+}
+
+#HUD {
+	position: fixed;
+	z-index: 10;
+
+}
+
+#P1 div, #P2 div, #P1, #P2{
+	position: absolute;
+}
+
+.healthBarOuter {
+	width: 200px;
+	height: 10px;
+	border: 2px solid black;
+	background-color: white;
+}
+.healthBarInner {
+	height: 10px;
+	background-color: #d36;
+	position: static;
+	float: right;
+}
+
+
+
+#P1{
+}
+
+#P1 .healthBarOuter{	
+	left:91px;
+}
+
+#P1 .weapons{	
+	left:38px;
+	top:0px;
+}
+
+#P1 .ammo{	
+	left:72px;
+}
+
+#P1 .ammo .right{	
+	left:10px;
+}
+
+
+
+#P2{
+	left: 768px;
+}
+
+#P2 .faceIcon{
+	left:-40px;
+}
+#P2 .healthBarOuter{	
+	left:-289px;
+}
+#P2 .healthBarInner{	
+	position: relative;
+}
+
+#P2 .weapons{	
+	left:-74px;
+}
+
+#P2 .ammo{	
+	left:-93px;
+}
+
+#P2 .ammo .right{	
+	left:10px;
+}
+
+
+#grid {
+	position: absolute;
+	z-index: 5;
+}
+
+#grid td{
+	width: 49px;
+	height: 24px;
+	border: 1px black solid;
+}
+
+
+/*_-+=+-__-^-__-+=+-__-^-__-+=+-__-^-__-+=+-__-^-__-+=+-__-^-__-+=+-__-^-_
+
+						CLASS
+
+/*_-+=+-__-^-__-+=+-__-^-__-+=+-__-^-__-+=+-__-^-__-+=+-__-^-__-+=+-__-^-_*/
+
+.character.hitbox {
+	position: absolute;
+	background-color: green;
+	z-index: 3;
+}
+
+.attack.hitbox {
+	position: absolute;
+	background-color: red;
+	z-index: 4;
+}
+.crate.hitbox {
+	position: absolute;
+	background-color: blue;
+	z-index: 4;
+}
+
+/*
+
+.dirt {
+	background-color: red
+}
+
+.grass {
+	background-color: green
+}
+
+.brick {
+	background-color: grey
+}
+

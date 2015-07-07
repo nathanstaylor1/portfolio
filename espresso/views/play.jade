@@ -1,0 +1,80 @@
+extends layout
+block content
+  .container-fluid.full-height.text-center#play-image.img-back.rel.play-page
+    .shader.full-fit
+    h3.loud.rel.tagline Lets have some fun!
+    .intro-holder
+      .intro-back.full-fit
+      p.reading.intro
+         | Here are some fun little snippets of code I have made while messing around. 
+         | Most of this was done while following a tutorial or learning something new so the code isn't the best.
+         | Feel free to borrow and share!
+
+    .play-box-holder
+      .row
+        .col-md-6.text-right    
+          .play-box.light
+            .img.img-back.play-box-thumbnail.full-fit(style = 'background-image: url("../images/play-thumbnails/connectfour.png")')
+            .shader.full-fit 
+              a(href = "/play/connectfour").full-fit.abs.link
+            .play-box-text-holder
+                h4.heading.play-box-title Connect4
+                p.reading.play-box-blurb Play a game of connect 4 against a friend or the computer!
+        .col-md-6.text-left    
+          .play-box.light
+            .img.img-back.play-box-thumbnail.full-fit(style = 'background-image: url("../images/play-thumbnails/sprite-wars.png")')
+            .shader.full-fit
+              a(href = "/play/spritewars").full-fit.abs.link            	
+            .play-box-text-holder
+              h4.heading.play-box-title SpriteWars
+              p.reading.play-box-blurb Fight it out in an oldschool sprite deathmatch!
+      .row           
+        .col-md-6.text-right    
+          .play-box.light
+            .img.img-back.play-box-thumbnail.full-fit(style = 'background-image: url("../images/play-thumbnails/spinners.png")')
+            .shader.full-fit
+              a(href = "/play/spinners").full-fit.abs.link            	
+            .play-box-text-holder                
+                h4.heading.play-box-title Spinners
+                p.reading.play-box-blurb Some spinners I made.
+        .col-md-6.text-left    
+          .play-box.light
+            .img.img-back.play-box-thumbnail.full-fit(style = 'background-image: url("../images/play-thumbnails/twinkle.png")')
+            .shader.full-fit
+              a(href = "/play/twinkle").full-fit.abs.link            	
+            .play-box-text-holder           
+                h4.heading.play-box-title Twinkle
+                p.reading.play-box-blurb Sit back and watch the night sky!
+      .row           
+        .col-md-6.text-right    
+          .play-box.light
+            .img.img-back.play-box-thumbnail.full-fit(style = 'background-image: url("../images/play-thumbnails/balls.png")')
+            .shader.full-fit
+              a(href = "/play/balls").full-fit.abs.link            	
+            .play-box-text-holder                
+                h4.heading.play-box-title Balls
+                p.reading.play-box-blurb Watch some balls bounce around a room.
+        .col-md-6.text-left    
+          .play-box
+            .img.img-back.play-box-thumbnail.full-fit(style = 'background-image: url("../images/play-thumbnails/stencillax.png")')
+            .shader.full-fit
+              a(href = "/play/stencillax").full-fit.abs.link            	
+            .play-box-text-holder                
+                h4.heading.play-box-title Stencillax
+                p.reading.play-box-blurb Layered parallax backgrounds.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

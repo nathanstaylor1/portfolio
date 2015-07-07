@@ -1,0 +1,8 @@
+extends layout
+block content
+ .container-fluid.full-height#error-image.img-back.rel.error-page
+    .shader.full-fit
+    .container-fluid.error-message
+      h3= message
+      h4= error.status
+      pre.light #{error.stack}

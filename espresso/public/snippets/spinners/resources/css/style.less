@@ -1,0 +1,217 @@
+//variables
+
+@duration: 3s;
+
+// mixins
+
+.rotateElementX(@degrees){
+	-ms-transform: rotateX( @degrees);
+	-webkit-transform: rotateX( @degrees); 
+    transform: rotateX( @degrees);
+}
+
+.rotateElementY(@degrees){
+	-ms-transform: rotateY( @degrees);
+	-webkit-transform: rotateY( @degrees); 
+    transform: rotateY( @degrees);
+}
+
+.rotateElementZ(@degrees){
+	-ms-transform: rotateZ( @degrees);
+	-webkit-transform: rotateZ( @degrees); 
+    transform: rotateZ( @degrees);
+}
+
+.scaleElement(@amountX, @amountY ){
+	-ms-transform: scale(@amountX, @amountY );
+	-webkit-transform: scale(@amountX, @amountY );
+    transform: scale(@amountX, @amountY );	
+}
+
+.applyAnimation( @animationName ){
+	animation-name: @animationName;
+    animation-duration: @duration;
+    animation-iteration-count: infinite;
+}
+
+// animations
+
+@keyframes foldingsquare {
+	0% 	 { .rotateElementY(0deg);   }
+    50%  { .rotateElementY(180deg); }
+    100% { .rotateElementY(360deg); }
+}
+
+@keyframes opaquecircles {
+	0% 	 { .scaleElement(0,0);  }
+	50%	 { .scaleElement(1,1);  }
+    100% { .scaleElement(0,0);  }
+}
+
+@keyframes mexicanwave {
+	0% 	 { .rotateElementZ(0deg); }
+	100% { .rotateElementZ(-360deg); }
+}
+
+@keyframes dancingsquares {
+	0% 	 { .rotateElementZ(0deg); .scaleElement(.3,.3); left:25px; top:25px; }
+	25%  { .rotateElementZ(90deg); .scaleElement(.2,.2); left:65px; top:25px; }
+	50%  { .rotateElementZ(180deg); .scaleElement(.3,.3); left:60px; top:60px; }
+	75%  { .rotateElementZ(270deg); .scaleElement(.2,.2); left:25px; top:65px; }
+	100% { .rotateElementZ(360deg); .scaleElement(.3,.3); left:25px; top:25px; }
+}
+
+@keyframes juggle {
+	0% 	 { .scaleElement(0.0,0.0); left:0px; top:50px; }
+	15%  { .scaleElement(.4,.4); left:40px; top:0px; }
+	50%  { .scaleElement(0.0,0.0); left:50px; top:50px;}
+	65%  { .scaleElement(.4,.4); left:10px; top:0px; }
+	100% { .scaleElement(0.0,0.0); left:0px; top:50px; }
+}
+
+
+// apply animations 
+
+#foldingSquare > div {
+	.applyAnimation( foldingsquare )
+}
+#foldingSquare > div:nth-child(2) {
+	animation-delay: -@duration / 3;
+	animation-direction: reverse;
+}
+#foldingSquare > div:nth-child(3) {
+	animation-delay: -@duration / 4;
+}
+#foldingSquare > div:nth-child(4) {
+	animation-delay: -@duration / 5;
+	animation-direction: reverse;
+}
+#foldingSquare > div:nth-child(5) {
+	animation-delay: -@duration / 7;
+}
+
+
+
+#opaqueCircles > div {
+	.applyAnimation( opaquecircles )
+}
+
+#opaqueCircles > div:first-child, #dancingSquares > div:first-child {
+	animation-delay: -@duration / 2;
+	.scaleElement(0,0);
+}
+
+#mexicanWave > div {
+	.applyAnimation( mexicanwave )
+}
+
+#mexicanWave > div:nth-child(1) {
+	animation-delay: -@duration / 10 * 1
+}
+#mexicanWave > div:nth-child(2) {
+	animation-delay: -@duration / 10 * 2
+}
+#mexicanWave > div:nth-child(3) {
+	animation-delay: -@duration / 10 * 3
+}
+#mexicanWave > div:nth-child(4) {
+	animation-delay: -@duration / 10 * 4
+}
+#mexicanWave > div:nth-child(5) {
+	animation-delay: -@duration / 10 * 5
+}
+
+#dancingSquares > div {
+	.applyAnimation( dancingsquares )
+}
+
+
+#juggle > div {
+	.applyAnimation( juggle );
+	animation-timing-function: cubic-bezier(n,n,n,n);
+}
+#juggle > div:nth-child(1) {
+	animation-delay: -@duration / 3 * 0
+}
+#juggle > div:nth-child(2) {
+	animation-delay: -@duration / 3 * 1
+}
+#juggle > div:nth-child(3) {
+	animation-delay: -@duration / 3 * 2
+}
+
+
+// layout
+
+body {
+	background-color: lighten(#489 , 20%)
+}
+
+
+table {
+	position: absolute;
+	top: 100px;
+	width: 60%;
+	left: 20%
+}
+
+.row > div {
+	position: relative;
+	margin-left: 30vw;
+	padding-top: 12vh;
+
+	&:nth-child(2), &:nth-child(4){
+		margin-left: 60vw;
+	}
+}
+
+// shapes
+
+.shape {
+	background-color: #fafafa;
+	position: absolute;
+}
+
+.square {
+	width: 50px;
+	height: 50px;
+}
+
+.circle {
+	.square;
+	border-radius: 50px;
+}
+
+.rectangle {
+	height: 30px;
+	width: 6px;
+	display: inline-block;
+	position: static;
+	margin-top:50px;
+}
+
+.triangle {
+	position: absolute;
+	width: 0; 
+	height: 0;
+	border-left: 25px solid transparent;
+	border-right: 25px solid transparent;
+
+	&.up{
+		border-bottom: 50px solid #fafafa;
+	}
+
+	&.down{
+		border-top: 50px solid #fafafa;
+	}
+}
+
+
+
+.small{
+	.scaleElement(0,0);
+}
+
+.opaque{
+	opacity: 0.3;
+}

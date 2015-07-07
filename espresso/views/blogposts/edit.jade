@@ -1,0 +1,38 @@
+extends ../layout
+block content
+  - var admin = true
+  .container-fluid.full-height.post-page#blog-image.img-back-repeat.rel.light
+    .edit-post
+      h1 Edit Post 
+      p ID: #{post._id}
+      if admin
+        form(action='/blogposts/#{post._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
+          input(type='hidden',value='DELETE',name='_method')
+          button(type='submit').btn-danger#btnSubmit  Delete Post
+
+      p.blog-post-created Created: #{created}
+
+      form(action='/blogposts/#{post._id}/edit',method='post',name='updatepost',enctype='application/x-www-form-urlencoded')
+        p Title: 
+            input#inputTitle(type='text', value='#{post.title}', name='title')
+        p Content: 
+            textarea#inputContentEdit(name='content') #{post.content}
+        p 
+            input(type='hidden',value='PUT',name='_method')
+        p 
+            button.btn-primary#btnSubmit(type='submit').
+                Update
+      if post.comments
+        ul.comments.text-left 
+          - each comment in post.comments
+            .container.comment-holder
+              h4
+                span.comment-author  #{comment.author}
+                i.comment-created - #{post.created.toDateString()}
+              h4.comment-created id: #{comment._id}
+              p.comment-body #{comment.body} 
+              if admin
+                form(action='/blogposts/#{post._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
+                  input(type='hidden',value='#{comment._id}', name='deleteComment')
+                  input(type='hidden',value='PUT',name='_method')
+                  button(type='submit').btn-danger#btnSubmit Delete Comment

@@ -4,7 +4,7 @@ Table of Contents of Content: (Navigation)
 	-	Work (portfolio)
 	-	Play (tools / games / animations)
 	-	Blog
-	-	Contact
+	-	Contact (changed to footer)
 
 ----------------------------// LANDING PAGE //------------------------------------
 
@@ -77,7 +77,7 @@ Table of Contents of Content: (Navigation)
 
 	~Where do I want to go?~
 
-		- I want to work in a Digital agency
+		- I want to work in a Digital agency ad a Junior Dev.
 		- I want to improve my skills and learn from others
 		- I want to create top quality work
 		- I want to innovate and push te boundries of what is possible
@@ -96,6 +96,8 @@ Table of Contents of Content: (Navigation)
 	 * 
 	 * 
 
+
+
 -~<*| C O P Y |*>~- 
 	
 	> coming SOON <
@@ -110,12 +112,20 @@ Table of Contents of Content: (Navigation)
 
 > I can achieve this by:
 	 * Simple easy to understand layout
-	 * 
-	 * 
+	 * Explain that a lot of this was done while learning
+	 * Outline what I would do differntly now or what i could improve.
 
 -~<*| C O P Y |*>~- 
 	
-	> coming SOON <
+	- !!something about making these fun snippets while learning!!
+
+	thumbs and titles
+
+		click for info:
+			- what is it?
+			- How did I make it?
+			- Challenges.
+			- What can be improved.
 
 ----------------------------// BLOG //------------------------------------
 
@@ -132,9 +142,14 @@ Table of Contents of Content: (Navigation)
 
 -~<*| C O P Y |*>~- 
 	
-	> coming SOON <
+	-!! blog sidebar with infor about me!!
 
-----------------------------// CONTACT //------------------------------------
+	- blog post ideas:
+
+		- stencil art parallax
+		- make a game: Kill the ai! (KAI)
+
+----------------------------// FOOTER //------------------------------------
 
 > Goal of page is to:
 	 * Allow someone to contact me
