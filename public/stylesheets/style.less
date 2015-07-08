@@ -29,18 +29,43 @@ body  * {
 // fonts
 
 @font-face {
-    font-family: REIS;
-    src: url('../fonts/REIS.ttf');
-}
-@font-face {
-    font-family: Rosario;
-    src: url('../fonts/Rosario.otf');
-}
-@font-face {
-    font-family: Josefin Slab;
-    src: url('../fonts/JosefinSlab.ttf');
+    font-family: 'josefin_slabregular';
+    src: url('../fonts/josefinslab-webfont.eot');
+    src: url('../fonts/josefinslab-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/josefinslab-webfont.woff2') format('woff2'),
+         url('../fonts/josefinslab-webfont.woff') format('woff'),
+         url('../fonts/josefinslab-webfont.ttf') format('truetype'),
+         url('../fonts/josefinslab-webfont.svg#josefin_slabregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
+@font-face {
+    font-family: 'reisregular';
+    src: url('../fonts/reis-webfont.eot');
+    src: url('../fonts/reis-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/reis-webfont.woff2') format('woff2'),
+         url('../fonts/reis-webfont.woff') format('woff'),
+         url('../fonts/reis-webfont.ttf') format('truetype'),
+         url('../fonts/reis-webfont.svg#reisregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'rosarioregular';
+    src: url('../fonts/rosario-webfont.eot');
+    src: url('../fonts/rosario-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/rosario-webfont.woff2') format('woff2'),
+         url('../fonts/rosario-webfont.woff') format('woff'),
+         url('../fonts/rosario-webfont.ttf') format('truetype'),
+         url('../fonts/rosario-webfont.svg#rosarioregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
 
 //vars
 
@@ -53,11 +78,11 @@ body  * {
 
   //font stacks:
 
-  @loudFont: 'REIS';
+  @loudFont: 'reisregular', "Lucida Sans Unicode", "Lucida Grande", sans-serif;
   @loudSize: 10vw;
-  @readingFont: 'Josefin Slab';
+  @readingFont: 'josefin_slabregular', Tahoma, Geneva, sans-serif ;
   @readingSize: 2em;
-  @headingFont: 'Rosario';
+  @headingFont: 'rosarioregular', "Trebuchet MS", Helvetica, sans-serif;
   @headingSize: 1em;
   @headingMargin: 20px;
 
