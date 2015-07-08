@@ -1,8 +1,32 @@
-var loader = new PxLoader(); 
-var backgroundImg1 = loader.addImage("../images/bus.jpg"),
-    backgroundImg2 = loader.addImage("../images/bamboo.jpg"),
-    backgroundImg3 = loader.addImage("../images/computer.jpg"),
-    backgroundImg4 = loader.addImage("../images/clouds.jpg")
+var loader = new PxLoader();
+
+var indexImages = ['bus.jpg', 'bamboo.jpg', 'computer.jpg', 'clouds.jpg']
+var workImages = ['design.jpg']
+var playImages = ['night-lights.jpg']
+var blogImages = ['textures/cardboard.png']
+
+var currentPage = window.location.pathname.substring(1,5)
+
+switch(currentPage){
+	case "work":
+	var currentImages = workImages;
+	break;
+	case "play":
+	var currentImages = playImages;
+	break;
+	case "blog":
+	var currentImages = blogImages;
+	break;
+	default:
+	var currentImages = indexImages;
+	break;
+}
+
+currentImages.forEach(function(image){
+
+	var currentImage = loader.addImage("../images/" + image )
+
+})
 
 loader.addCompletionListener(function() { 
 	console.log("all images loaded")
