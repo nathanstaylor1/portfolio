@@ -86,6 +86,12 @@ body  * {
   @headingSize: 1em;
   @headingMargin: 20px;
 
+  // preloader
+
+  @duration: 3s;
+  @messagespeed: 20;
+  @loaderColor: @black;
+
 
   //nav
 
@@ -128,6 +134,24 @@ body  * {
 .applyParallax( @depth ){
     -webkit-transform: translateZ( unit(@depth, px) ) scale( 1 - (@depth / @perspective ) );
     transform: translateZ( unit(@depth, px) ) scale( 1 - (@depth / @perspective ) );
+}
+
+.scaleElement(@amountX, @amountY ){
+  -ms-transform: scale(@amountX, @amountY );
+  -webkit-transform: scale(@amountX, @amountY );
+    transform: scale(@amountX, @amountY );  
+}
+
+.translateElementX(@amount){
+  -ms-transform: translateX(@amount);
+  -webkit-transform: translateX(@amount);
+    transform: translateX(@amount);
+}
+
+.applyAnimation( @animationName ){
+  animation-name: @animationName;
+    animation-duration: @duration;
+    animation-iteration-count: infinite;
 }
 
 // media queries
@@ -225,6 +249,141 @@ ul, ol, li {
 input, textarea {
   border: @border;
 }
+
+// preloader 
+
+    // animations
+
+@keyframes spinner {
+  0%   { .scaleElement(0.0,0.0); left:0px; top:15vmin; }
+  20%  { .scaleElement(1,1); left:12vmin; top:0px; }
+  50%  { .scaleElement(0.0,0.0); left:15vmin; top:15vmin;}
+  70%  { .scaleElement(1,1); left:3vmin; top:0px; }
+  100% { .scaleElement(0.0,0.0); left:0px; top:15vmin; }
+}
+
+@keyframes messagefade {
+  0%   { opacity: 0 }
+  20%  { opacity: 1 }
+  80%  { opacity: 1 }
+  100% { opacity: 0 }
+}
+
+@keyframes fadeout {
+  0%   { opacity: 1 }
+  100% { opacity: 0 }
+}
+@keyframes fadein {
+  0%   { opacity: 0 }
+  100% { opacity: 1 }
+}
+
+@keyframes slideleft {
+  0%   { .translateElementX(0%)    }
+  100% { .translateElementX(-100%) }
+}
+@keyframes slideright {
+  0%   { .translateElementX(0%)    }
+  100% { .translateElementX(100%) }
+}
+
+// Apply Animations 
+  
+  //- spinner--//
+
+#spinner > .shape {
+  .applyAnimation( spinner );
+}
+#spinner > .shape:nth-child(1) {animation-delay: @duration / 3 * 0}
+#spinner > .shape:nth-child(2) {animation-delay: @duration / 3 * -1}
+#spinner > .shape:nth-child(3) {animation-delay: @duration / 3 * -2}
+
+.message h4{
+  font-weight: 100;
+  .applyAnimation( messagefade );
+}
+.message h4:nth-child(1) {  animation-delay: @duration / @messagespeed * 0}
+.message h4:nth-child(2) {  animation-delay: @duration / @messagespeed * 1}
+.message h4:nth-child(3) {  animation-delay: @duration / @messagespeed * 2}
+.message h4:nth-child(4) {  animation-delay: @duration / @messagespeed * 3}
+.message h4:nth-child(5) {  animation-delay: @duration / @messagespeed * 4}
+.message h4:nth-child(6) {  animation-delay: @duration / @messagespeed * 5}
+.message h4:nth-child(7) {  animation-delay: @duration / @messagespeed * 6}
+
+
+//-on loaded-//
+
+.loaded #loader-wrapper {
+    pointer-events: none;
+}
+
+.loaded .blocker {
+  opacity: 0;
+}
+
+.nospinner #spinner, .loaded #spinner {
+  opacity: 0;
+}
+
+// Preloader styling
+
+#loader-wrapper .blocker {
+    position: fixed;
+    top: 0;
+    width: 101%;
+    height: 100%;
+    background: @loaderColor;
+    z-index: 1000;
+}
+
+.blocker {
+  opacity: 1;
+  -webkit-transition: opacity .5s;
+  transition:  opacity .5s;
+}
+
+#spinner{
+  position: absolute;
+  width: 10vw;
+  top: 25vh;
+  left: 45vw;
+  margin: auto;
+  text-align: center;
+  z-index: 1001;
+  color: #fafafa;
+  -webkit-transition: opacity .5s;
+  transition:  opacity .5s;
+  opacity: 1;
+}
+
+.message {
+  position: relative;
+  top: 20vmin;
+
+  h4{
+    display: inline-block;
+    top: 25vmin;
+    left: 10vmin;
+    opacity: 0;
+    font-size: 2vmin;
+    letter-spacing: 1vmin;
+    color: @white;
+  }
+}
+
+.shape {
+  background-color: #fafafa;
+  position: absolute;
+}
+
+.cir {
+  height: 5vmin;
+  width: 5vmin;
+  border-radius: 50px;
+}
+
+
+
 
 //navbar and footer //
 

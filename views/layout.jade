@@ -8,11 +8,14 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
 
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+    script(src='/js/PxLoader.js')   
+    script(src='/js/PxLoaderImage.js') 
     script(src='/bootstrap/js/bootstrap.min.js')
     script(src='/js/modernizr.js')
-    script(src='/js/script.js')
+    script(src='/js/script.js')   
+
     
-  body
+  body.nospinner
 
     header
       nav.navbar.navbar-fixed-top
@@ -26,18 +29,35 @@ html
           .link-holder  
             a(href="/blogposts/").inverse BLOG       
 
-        #navbarToggle.show-mid-document
+    #navbarToggle.show-mid-document
           .shape.rectangle.inverse
           .shape.rectangle.inverse
           .shape.rectangle.inverse
 
+
     block content
+
 
     footer.footer
       .container-fluid.text-center
         .row
           .col-xs-12            
             p Hire me: nathanstaylor1@gmail.com
+    
+    #loader-wrapper
+        #spinner
+            .shape.cir
+            .shape.cir
+            .shape.cir
+            .message
+                h4 L
+                h4 O
+                h4 A
+                h4 D
+                h4 I
+                h4 N
+                h4 G
 
+        .blocker
 
         

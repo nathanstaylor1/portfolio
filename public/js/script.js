@@ -1,4 +1,33 @@
+var loader = new PxLoader(); 
+var backgroundImg1 = loader.addImage("../images/bus.jpg"),
+    backgroundImg2 = loader.addImage("../images/bamboo.jpg"),
+    backgroundImg3 = loader.addImage("../images/computer.jpg"),
+    backgroundImg4 = loader.addImage("../images/clouds.jpg")
+
+loader.addCompletionListener(function() { 
+	console.log("all images loaded")
+	    $('body').addClass('loaded');
+}); 
+
+loader.start(); 
+
 $(document).ready(function(){
+
+	$('body').removeClass('nospinner')
+
+	$('a').click(function(event) {
+	    event.preventDefault();
+	    var href = this.href;
+
+	     $('body').addClass('nospinner')
+   		 $('body').removeClass("loaded")
+
+	    setTimeout(function() {
+	        window.location = href;
+	    },500);
+	});
+
+
 
 	var $window = $(window);
 	var win_height_padded = $window.height() * 1.1;
