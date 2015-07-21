@@ -1,17 +1,16 @@
 extends ../layout
 block content
   .container-fluid.full-height.blog-page#blog-image.img-back-repeat.rel.light
-      - var admin = true
 
       ul.post-list
-        if admin 
+        if admin
           li.post
             h3.blog-list-heading 
-              a(href='/blogposts/new') New post...
-          - each post, i in posts
-            li.post
-              h3.blog-list-heading 
-                a(href='/blogposts/#{post._id}') #{post.title}
-              h8.blog-list-created #{post.created.toDateString()}
-              .blog-list-content!=post.content.substring(0,300) + ". . ."
-              p.blog-list-comments #{post.comments.length} comments
+                a(href='/blogadmin/new') New post... 
+        - each post, i in posts
+          li.post
+            h3.blog-list-heading 
+              a(href='/#{link}/#{post._id}') #{post.title}
+            h8.blog-list-created #{post.created.toDateString()}
+            .blog-list-content!=post.content.substring(0,300) + ". . ."
+            p.blog-list-comments #{post.comments.length} comments

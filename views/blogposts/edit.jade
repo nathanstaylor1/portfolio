@@ -6,13 +6,13 @@ block content
       h1 Edit Post 
       p ID: #{post._id}
       if admin
-        form(action='/blogposts/#{post._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
+        form(action='/blogadmin/#{post._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
           input(type='hidden',value='DELETE',name='_method')
           button(type='submit').btn-danger#btnSubmit  Delete Post
 
       p.blog-post-created Created: #{created}
 
-      form(action='/blogposts/#{post._id}/edit',method='post',name='updatepost',enctype='application/x-www-form-urlencoded')
+      form(action='/blogadmin/#{post._id}/edit',method='post',name='updatepost',enctype='application/x-www-form-urlencoded')
         p Title: 
             input#inputTitle(type='text', value='#{post.title}', name='title')
         p Content: 
@@ -32,7 +32,7 @@ block content
               h4.comment-created id: #{comment._id}
               p.comment-body #{comment.body} 
               if admin
-                form(action='/blogposts/#{post._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
+                form(action='/blogadmin/#{post._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
                   input(type='hidden',value='#{comment._id}', name='deleteComment')
                   input(type='hidden',value='PUT',name='_method')
                   button(type='submit').btn-danger#btnSubmit Delete Comment

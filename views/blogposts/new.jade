@@ -3,7 +3,7 @@ block content
   .container-fluid.full-height.post-page#blog-image.img-back-repeat.rel.light
     .new-post
       h1.new-post-heading #{title}   
-      form#formAddPost(name="addpost",method="post",action="/blogposts")          
+      form#formAddPost(name="addpost",method="post",action="/blogadmin")          
         input#inputTitle(type="text", placeholder="Title...", name="title")
         textarea#inputContent(type="text", name="content", placeholder="Body...")
         button#btnSubmit.btn-primary(type="submit") Post

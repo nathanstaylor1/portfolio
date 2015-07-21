@@ -4,13 +4,14 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var auth = require('basic-auth')
 var db = require('./model/db');
 var blog = require('./model/blogposts');
 var routes = require('./routes/index');
-var users = require('./routes/users');
 var blog = require('./routes/blog');
+var admin = require('./routes/blog_admin');
 
-
+var auth = require('./auth');
 var app = express();
 
 // view engine setup
@@ -25,10 +26,11 @@ app.use(cookieParser());
 app.use(require('less-middleware')(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/users', users);
-app.use('/blogposts', blog);
 
+app.use('/', routes);
+app.use('/blogposts', blog);
+app.use(auth);
+app.use('/blogadmin', admin);
 
 
 // catch 404 and forward to error handler
@@ -61,6 +63,7 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
 
 
 module.exports = app;

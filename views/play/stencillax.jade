@@ -5,9 +5,19 @@ block content
     h3.loud.rel.tagline Stencillax
     .intro-holder
       .intro-back.full-fit
-      p.reading.intro
-        |- what is it?<br>
-        |- How did I make it?<br>
-        |- Challenges.<br>
-        |- What can be improved.<br> 
+      div.reading.intro
+        h4 What is it?
+        p   A fun effect using parrallax scrolling and an image sliced into many layers.  I used to make stencil aret when I was younger so I used a similar technique. This way involves a lot less cutting and sore fingers!
+        h4 How did I make it?
+        p   
+          |I took an image and used image eding software (GIMP in my case) to desturate and then adjutst the threshhold to get sllices of different light exposure. I then exported each layer and used CSS styling to get the z-index values and sizes correct. </br>
+          |The parrallax effect is acheived using CSS only and scaling the images in the Z-direction so that they scroll slower. This has a side effect of making the layer smaller, so another transformation must be made to increase the size of the layer back to normal. This technique was deisnged by Keith Clark and you can read about it <a href = "http://keithclark.co.uk/articles/pure-css-parallax-websites/">here </a>.
+        h4 What was challenging?
+        p  Getting the parallax effect to work the same way across different browsers.
+        h4 What can be improved?
+        p  The image editing is fiddly and time consuming so I would like the write some kind of automation to take an image and export a given number of layers at different exposures.
     iframe(src = '/play/snippets/stencillax/').light
+    .caption-holder.intro-holder
+      .intro-back.full-fit
+      div.reading.intro
+        p Scroll down to see the effect.

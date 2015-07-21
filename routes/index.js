@@ -79,10 +79,4 @@ router.get('/play/snippets/stencillax/', function(req, res, next) {
 
 
 
-
-/* POST blog page. */
-router.get('/blog', function(req, res, next) {
-  res.render('blog', { title: 'nst:blog'});
-});
-
 module.exports = router;
