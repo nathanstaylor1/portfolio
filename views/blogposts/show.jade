@@ -1,35 +1,49 @@
 extends ../layout
 block content
   .container-fluid.full-height.post-page#blog-image.img-back-repeat.rel.light
-    .show-post
-      h2.blog-post-heading  #{post.title}
-      p.blog-post-created #{created} 
-        if admin
-            a(href='/blogadmin/#{post._id}/edit') Edit
+    
+    .row#blog
+      .col-md-9
+        .show-post
+          h2.blog-post-heading  #{post.title}
+          p.blog-post-created #{created} 
+            if admin
+                a(href='/blogadmin/#{post._id}/edit') Edit
 
-      div.blog-post-content!=post.content
-      if post.comments
+          div.blog-post-content!=post.content
+          if post.comments
 
-      h4.blog-post-comments-heading Comments:
-        ul.blog-post-comments
-          - each comment in post.comments
-            li
-              .container.comment-holder
-                  h4
-                    span.comment-author  #{comment.author}
-                    i.comment-created - #{post.created.toDateString()}
-                  p.comment-body #{comment.body}
-      h4.blog-post-comments-heading Write a comment:
-      form#formAddComment(action='/#{link}/#{post._id}/edit',method='post',name='addcomment',enctype='application/x-www-form-urlencoded')
-          
-          if !admin
-            p
-              input#inputAuthor(type="text", placeholder="Name", name="author")
-          p
-            textarea#inputComment(type="text", placeholder="Your comment...", name="comment")
-          p 
-            input(type='hidden',value='PUT',name='_method')
-          p
-            button#btnSubmit.btn-primary(type='submit') Post
-      if admin
-            a(href='/blogadmin/') Back
+          h4.blog-post-comments-heading Comments:
+            ul.blog-post-comments
+              - each comment in post.comments
+                li
+                  .container.comment-holder
+                      h4
+                        span.comment-author  #{comment.author}
+                        i.comment-created - #{post.created.toDateString()}
+                      p.comment-body #{comment.body}
+          h4.blog-post-comments-heading Write a comment:
+          form#formAddComment(action='/#{link}/#{post._id}/edit',method='post',name='addcomment',enctype='application/x-www-form-urlencoded')
+              
+              if !admin
+                p
+                  input#inputAuthor(type="text", placeholder="Name", name="author")
+              p
+                textarea#inputComment(type="text", placeholder="Your comment...", name="comment")
+              p 
+                input(type='hidden',value='PUT',name='_method')
+              p
+                button#btnSubmit.btn-primary(type='submit') Post
+          if admin
+                a(href='/blogadmin/') Back
+      .col-md-3
+        .bio-wrap
+          .bio
+            .row
+              .col-xs-6
+                h3 About <br> <a href = "/"><span>me</span></a>
+              .col-xs-6
+                img(src="/images/headshot.jpg")
+            .row
+              .col-xs-12
+                p I'm an aspiring web develper from Melbourne, Australia. I lived in Japan for a few years and love Japanese culture. When I'm not staring at a screen I love to cook eat and drink!

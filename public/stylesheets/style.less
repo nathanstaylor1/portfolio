@@ -161,7 +161,7 @@ body  * {
     font-size: 26px;
   }
   .show-post {
-    width:65%;
+    width:90%;
   }
   .play-box{
     width: 30vw;
@@ -174,15 +174,23 @@ body  * {
   .blog-list-heading, .blog-post-heading {
     font-size: 4em;
   }
+  .intro-holder {
+    width: 70%;
+    margin: 100px 15vw 10vh 15vw;
+  }
+  .bio img{
+    width: 100%
+  }
 }
 
 
 @media only screen and (max-width: 1000px) {
   .answer, .footer{
     font-size: 20px;
+    padding: 10px;
   }
   .show-post {
-    width:85%;
+    width:90%;
   }
   .play-box{
     width: 50vw;
@@ -190,15 +198,29 @@ body  * {
   }
   .blog-list-content, .blog-post-content, .comment-body, .intro  {
     font-size: 16px;
+    pre {
+      font-size: 12px;
+    }
   }
   .blog-list-heading, .blog-post-heading {
     font-size: 3em;
+  }
+  .intro-holder {
+    width: 80%;
+    margin: 100px 10vw 5vh 10vw;
+  }
+  .bio img{
+    width: 45%
   }
 }
 
 @media only screen and (max-width: 400px) {
   .answer, .footer{
     font-size: 14px;
+    padding: 10px;
+    .circle{
+      font-size: 18px;
+    }
   }
   .show-post {
     width:90%;
@@ -209,9 +231,19 @@ body  * {
   }
   .blog-list-content, .blog-post-content, .comment-body, .intro {
     font-size: 14px;
+    pre {
+      font-size: 10px;
+    }
   }
   .blog-list-heading, .blog-post-heading {
     font-size: 2em;
+  }
+  .intro-holder {
+    width: 90%;
+    margin: 100px 5vw 5vh 5vw;
+  }
+  .bio img{
+    width: 70%
   }
 }
 
@@ -392,6 +424,7 @@ input, textarea {
   background-color: transparent;
   border: none;
   overflow: visible;
+  z-index: 1000;
 }
 
   //navbar toggle button...................................
@@ -404,7 +437,7 @@ input, textarea {
   top: 30px;
   width: 30px;
   height: 24px;
-  z-index: 4;
+  z-index: 4000;
   cursor: pointer;
   overflow: hidden;
 
@@ -797,9 +830,6 @@ input, textarea {
   }
 
   .intro-holder {
-
-    width: 70%;
-    margin: 100px 15vw 10vh 15vw;
     position: relative;
 
     .intro-back{
@@ -920,6 +950,14 @@ input, textarea {
 
   //blog
 
+#blog.row {
+  padding: 0px;
+  margin: 0px;
+  > div {
+    padding: none;
+  }
+}
+
 #blog-image {
   background-color: @white;
   background-image: url("../images/textures/cardboard.png");
@@ -942,10 +980,44 @@ input, textarea {
   text-align: justify;
 }
 
+.bio-wrap {
+  margin-top: 70px;
+  padding: 0vh 2vw 20vh 2vw;
+  .bio{
+    padding: 3vh 1vw 3vh 1vw;
+    background-color: @white;
+    color: @black;
+    h3 {
+      font-family: @loudFont;
+      color: @black;
+      font-size: 50px;
+      text-align: right;
+      span{
+        padding: 0px 10px 0px 10px; 
+        background-color: @blue;
+        color: @white;
+        &:hover{
+          background-color: @orange;
+          cursor: pointer;
+        }
+      }
+    }
+    p {
+      margin-top: 10px;
+      padding: 10px;
+      font-family: @readingFont;
+      line-height: 1.8em;
+      text-align: justify;
+    }
+  }
+
+}
+
     //list (index)
 
 .post-list{
-  padding: 10vh 10vw 20vh 10vw;
+  margin-top: 70px;
+  padding: 0vh 2vw 20vh 2vw;
   & .post {
     padding: 3vh 1vw 3vh 1vw;
     & * {
@@ -972,6 +1044,9 @@ input, textarea {
   }
 
   pre, cite, code, samp {
+    line-height: 1em;
+  }
+  pre.prettyprint{
     padding: 10px;
   }
 
@@ -994,6 +1069,19 @@ input, textarea {
   pre, code{
     background-color: @consoleColor;
     color: @white;
+    .prettyprint { display: block; background-color: #333 }
+    .nocode { background-color: none; color: #000 }
+    .str { color: #ffa0a0 } /* string  - pink */
+    .kwd { color: #f0e68c; font-weight: bold }
+    .com { color: #87ceeb } /* comment - skyblue */
+    .typ { color: #98fb98 } /* type    - lightgreen */
+    .lit { color: #cd5c5c } /* literal - darkred */
+    .pun { color: #fff }    /* punctuation */
+    .pln { color: #fff }    /* plaintext */
+    .tag { color: #f0e68c; font-weight: bold } /* html/xml tag    - lightyellow */
+    .atn { color: #bdb76b; font-weight: bold } /* attribute name  - khaki */
+    .atv { color: #ffa0a0 } /* attribute value - pink */
+    .dec { color: #98fb98 } /* decimal         - lightgreen */
   }
 
   code, samp {
