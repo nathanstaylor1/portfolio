@@ -67,6 +67,19 @@ body  * {
 
 }
 
+@font-face {
+    font-family: 'just_another_handregular';
+    src: url('../fonts/justanotherhand-webfont.eot');
+    src: url('../fonts/justanotherhand-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/justanotherhand-webfont.woff2') format('woff2'),
+         url('../fonts/justanotherhand-webfont.woff') format('woff'),
+         url('../fonts/justanotherhand-webfont.ttf') format('truetype'),
+         url('../fonts/justanotherhand-webfont.svg#just_another_handregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 //vars
 
   //colors
@@ -152,99 +165,6 @@ body  * {
   animation-name: @animationName;
     animation-duration: @duration;
     animation-iteration-count: infinite;
-}
-
-// media queries
-
-@media (max-width: 5000px) {
-  .answer, .footer{
-    font-size: 26px;
-  }
-  .show-post {
-    width:90%;
-  }
-  .play-box{
-    width: 30vw;
-    height: 20vw;
-  }
-  .blog-list-content, .blog-post-content, .comment-body, .intro {
-    font-size: 18px;
-  }
-
-  .blog-list-heading, .blog-post-heading {
-    font-size: 4em;
-  }
-  .intro-holder {
-    width: 70%;
-    margin: 100px 15vw 10vh 15vw;
-  }
-  .bio img{
-    width: 100%
-  }
-}
-
-
-@media (max-width: 1000px) {
-  .answer, .footer{
-    font-size: 20px;
-    padding: 10px;
-  }
-  .show-post {
-    width:90%;
-  }
-  .play-box{
-    width: 50vw;
-    height: 40vw;
-  }
-  .blog-list-content, .blog-post-content, .comment-body, .intro  {
-    font-size: 16px;
-    pre {
-      font-size: 12px;
-    }
-  }
-  .blog-list-heading, .blog-post-heading {
-    font-size: 3em;
-  }
-  .intro-holder {
-    width: 80%;
-    margin: 100px 10vw 5vh 10vw;
-  }
-  .bio img{
-    width: 45%
-  }
-}
-
-@media (max-width: 400px) {
-  .answer, .footer{
-    font-size: 14px;
-    padding: 10px;
-    .circle{
-      font-size: 18px;
-    }
-  }
-  .show-post {
-    width:90%;
-  }
-  .play-box{
-    width: 70vw;
-    height: 40vw;
-  }
-  .blog-list-content, .blog-post-content, .comment-body, .intro {
-    font-size: 14px;
-    pre {
-      font-size: 10px;
-    }
-  }
-  .blog-list-heading, .blog-post-heading {
-    font-size: 2em;
-  }
-  .intro-holder {
-    width: 90%;
-    margin: 100px 5vw 5vh 5vw;
-  }
-  .bio img{
-    width: 70%
-  }
 }
 
 
@@ -1236,3 +1156,122 @@ input, textarea {
     
   }
 }
+
+
+
+// media queries
+
+@media (max-width: 5000px) {
+  .answer, .footer{
+    font-size: 26px;
+  }
+  .show-post {
+    width:90%;
+  }
+  .play-box{
+    width: 30vw;
+    height: 20vw;
+  }
+  .blog-list-content, .blog-post-content, .comment-body, .intro {
+    font-size: 18px;
+  }
+
+  .blog-list-heading, .blog-post-heading {
+    font-size: 4em;
+  }
+  .intro-holder {
+    width: 70%;
+    margin: 100px 15vw 10vh 15vw;
+  }
+  .bio img{
+    width: 100%
+  }
+}
+
+
+@media (max-width: 1000px) {
+  .answer, .footer{
+    font-size: 20px;
+    padding: 10px;
+  }
+  .show-post {
+    width:90%;
+  }
+  .play-box{
+    width: 50vw;
+    height: 40vw;
+  }
+  .blog-list-content, .blog-post-content, .comment-body, .intro  {
+    font-size: 16px;
+    pre {
+      font-size: 12px;
+    }
+  }
+  .blog-list-heading, .blog-post-heading {
+    font-size: 3em;
+  }
+  .intro-holder {
+    width: 80%;
+    margin: 100px 10vw 5vh 10vw;
+  }
+  .bio img{
+    width: 45%
+  }
+  #loader-wrapper {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .answer, .footer{
+    font-size: 14px;
+    padding: 10px;
+    .circle{
+      font-size: 18px;
+    }
+  }
+  .show-post {
+    width:90%;
+  }
+  .play-box{
+    width: 70vw;
+    height: 40vw;
+  }
+  .blog-list-content, .blog-post-content, .comment-body, .intro {
+    font-size: 14px;
+    pre {
+      font-size: 10px;
+    }
+  }
+  .blog-list-heading, .blog-post-heading {
+    font-size: 2em;
+  }
+  .intro-holder {
+    width: 90%;
+    margin: 100px 5vw 5vh 5vw;
+  }
+  .bio img{
+    width: 70%
+  }
+  #loader-wrapper {
+    display: none;
+  }
+  .loud, .blog-list-heading, .blog-post-heading, .bio-wrap .bio h3{
+    font-family: just_another_handregular, "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  #loader-wrapper {
+    display: none;
+  }
+  .loud, .blog-list-heading, .blog-post-heading, .bio-wrap .bio h3{
+    font-family: just_another_handregular, "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+}
+
