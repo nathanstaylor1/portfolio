@@ -5,11 +5,20 @@ block content
     h3.loud.rel.tagline Sprite Wars
     .intro-holder
       .intro-back.full-fit
-      p.reading.intro
-        |- what is it?<br>
-        |- How did I make it?<br>
-        |- Challenges.<br>
-        |- What can be improved.<br>
-
+      div.reading.intro
+        h4 What is it?
+        p   An 8-bit deathmatch. Grab weapons from crates and fight it out to the death.
+        h4 How did I make it?
+        p   I created a Javascript game engine using an object oriented approach. 
+        h4 What was challenging?
+        p   Hit detection.
+        h4 What can be improved?
+        p   Menu, level & character select. Add some simple sounds for better user experience. Cross browser testing.
     #wrap 
       iframe(src = '/play/snippets/spritewars/').light.spritewarsFrame#frame
+    .caption-holder.intro-holder
+      .intro-back.full-fit
+      div.reading.intro
+        h4 Controls:
+        p P1: move: WSAD,       attack: SPACE, change weapon: Q & E
+        p P2: move: ARROW KEYS, attack: ENTER, change weapon: SHIFT

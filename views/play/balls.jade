@@ -5,9 +5,15 @@ block content
     h3.loud.rel.tagline Balls
     .intro-holder
       .intro-back.full-fit
-      p.reading.intro
-        |- what is it?<br>
-        |- How did I make it?<br>
-        |- Challenges.<br>
-        |- What can be improved.<br>
+      div.reading.intro
+        h4 What is it?
+        p   A room with balls that fall from the ceiling and bounce around. Each ball is a random color so grab your eyedropper and find a new color for your next project!
+        h4 How did I make it?
+        p   
+            |Everything is controlled by javascript. I used a Ball creator to generate a new ball object and append it to the DOM on creation. The function takes inputs for size color position and velocity. I made another function which takes a ball and sets an interval to updates the position based on the velocity. I then just set another interval with the function to make a ball and the function to set it moving and ran it every second. <br> 
+            |I also made a function which centerates a random color by splicing together a 6 digit hexcode choosing each digit at random from an array containing all possible values.
+        h4 What was challenging?
+        p   This was my first attempt at making a basic physics engine and getting each item to move properly and interact with the boundries was difficult at first. I also had the problem that it got quite crowded very quickly and the CPU would run out of memory. To handle this I made the balls split into two and then dissapear if under a certain diameter. This keeps the number of balls on screen at a manageable number.
+        h4 What can be improved?
+        p  I think this would make a fun tool for choosing colors but its a bit hard to grab the colors while the balls are moving so I'd like to implement a pause function and perhaps funtionality to change the background color to compare colors. The animation also seems to stop when the tab isnt being rendered but the adding of balls continues which causes many balls and many lag when returning to the tab or window. This needs to be fixed by checking for an active window in the add ball loop.
     iframe(src = '/play/snippets/balls/').light

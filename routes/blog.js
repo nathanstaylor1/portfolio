@@ -30,7 +30,8 @@ router.route('/')
                     html: function(){
                         res.render('blogposts/index', {
                               title: 'All my posts',
-                              "posts" : posts
+                              "posts" : posts,
+                              "link" : "blogposts"
                           });
                     },
                     //JSON response will show all blogposts in JSON format
@@ -41,44 +42,8 @@ router.route('/')
               }     
         });
     })
-    //POST a new blogpost
-    .post(function(req, res) {
-        // Get values from POST request. These can be done through forms or REST calls. These rely on the "name" attributes for forms
-        var title = req.body.title;
-        var content = req.body.content;
-        //call the create function for our database
-        mongoose.model('BlogPosts').create({
-            title : title,
-            created : Date.now(),
-            content : content
-        }, function (err, post) {
-              if (err) {
-                  res.send("There was a problem adding the information to the database.");
-              } else {
-                  //blogpost has been created
-                  console.log('POST creating new blogpost: ' + post);
-                  res.format({
-                      //HTML response will set the location and redirect back to the home page. You could also create a 'success' page if that's your thing
-                    html: function(){
-                        // If it worked, set the header so the address bar doesn't still say /adduser
-                        res.location("blogposts");
-                        // And forward to success page
-                        res.redirect("/blogposts");
-                    },
-                    //JSON response will show the newly created blogpost
-                    json: function(){
-                        res.json(blogposts);
-                    }
-                });
-              }
-        })
-    });
+    
 
-
-/* GET New Blog page. */
-router.get('/new', function(req, res) {
-    res.render('blogposts/new', { title: 'Add New blogpost' });
-});
 
 // route middleware to validate :id
 router.param('id', function(req, res, next, id) {
@@ -124,7 +89,8 @@ router.route('/:id')
           html: function(){
               res.render('blogposts/show', {
                 "created" : postCreated,
-                "post" : post
+                "post" : post,
+                "link" : "blogposts"
               });
           },
           json: function(){
@@ -135,66 +101,20 @@ router.route('/:id')
     });
   });
 
-//GET the individual blogpost by Mongo ID
-router.get('/:id/edit', function(req, res) {
-    //search for the blogpost within Mongo
-    mongoose.model('BlogPosts').findById(req.id, function (err, post) {
-        if (err) {
-            console.log('GET Error: There was a problem retrieving: ' + err);
-        } else {
-            //Return the blogpost
-            console.log('GET Retrieving ID: ' + post._id);
-            //format the date properly for the value to show correctly in our edit form
-          var postCreated = post.created.toISOString();
-          postCreated = postCreated.substring(0, postCreated.indexOf('T'))
-            res.format({
-                //HTML response will render the 'edit.jade' template
-                html: function(){
-                       res.render('blogposts/edit', {
-                          title: 'post' + post._id,
-                        "created" : postCreated,
-                          "post" : post
-                      });
-                 },
-                 //JSON response will return the JSON output
-                json: function(){
-                       res.json(post);
-                 }
-            });
-        }
-    });
-});
 
+//allow comments
 router.put('/:id/edit', function(req, res) {
     // Get our REST or form values. These rely on the "name" attributes
-    var title = req.body.title;
-    var content = req.body.content;
+
     var author = req.body.author || "Anonymous"
     var comment = req.body.comment;
-    var deleteComment = req.body.deleteComment;
 
-
-    // decide action to take on the database
-    if (content || title) 
-      var updateContents = {
-        title: title,
-        content: content
-      };
-    else if (comment)
-      var updateContents = {
+    var updateContents = {
         $push:{
           comments: {
             body: comment, 
             author: author, 
             posted: Date.now()
-          }
-        }
-      };
-    else if (deleteComment)
-      var updateContents = {
-        $pull:{
-          comments: {
-            _id: deleteComment
           }
         }
       };
@@ -210,7 +130,7 @@ router.put('/:id/edit', function(req, res) {
                       //HTML responds by going back to the page or you can be fancy and create a new view that shows a success page.
                       res.format({
                           html: function(){
-                              res.redirect("/blogposts/" + post._id + (deleteComment == undefined ? "/" : "/edit") );
+                              res.redirect("/blogposts/" + post._id );
                          },
                          //JSON responds showing the updated values
                         json: function(){
@@ -222,36 +142,6 @@ router.put('/:id/edit', function(req, res) {
         });
 });
 
-//DELETE a post by ID
-router.delete('/:id/edit', function (req, res){
-    //find post by ID
-    mongoose.model('BlogPosts').findById(req.id, function (err, post) {
-        if (err) {
-            return console.error(err);
-        } else {
-            //remove it from Mongo
-            post.remove(function (err, post) {
-                if (err) {
-                    return console.error(err);
-                } else {
-                    //Returning success messages saying it was deleted
-                    console.log('DELETE removing ID: ' + post._id);
-                    res.format({
-                        //HTML returns us back to the main page, or you can create a success page
-                          html: function(){
-                               res.redirect("/blogposts");
-                         },
-                         //JSON returns the item with the message that is has been deleted
-                        json: function(){
-                               res.json({message : 'deleted',
-                                   item : post
-                               });
-                         }
-                      });
-                }
-            });
-        }
-    });
-});
+
 
 module.exports = router;

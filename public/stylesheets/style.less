@@ -804,16 +804,37 @@ input, textarea {
 
     .intro-back{
       background-color: @white;
-      opacity: 0.4;
+      opacity: 0.6;
     }
 
     .intro{
       padding: 30px;
-      color: @white;
       z-index: 6;
       position: relative;
+      text-align: left;
+      color: @white;
+        *{ 
+          color: @white;
+          margin-bottom: 15px;
+          padding: 10px;
+        }
+        h4{
+          font-family: @headingFont;
+          background-color: @black;
+          line-height: 2em;
+          padding-left: 30px;
+        }
+        p {
+          font-family: @readingFont;
+          line-height: 1.5em;
+          font-weight: 400;
+        }
     }
 
+  }
+
+  .caption-holder{
+    margin-top: 15px; 
   }
   
   iframe{
@@ -821,7 +842,7 @@ input, textarea {
     z-index: 10;
     width: 90vmin;
     height: 90vmin;
-    margin-bottom: 200px;
+    margin-bottom: 20px;
 
   }
 
@@ -829,7 +850,7 @@ input, textarea {
     width: 80vw;
     height: 45vw;
     padding: 0px;
-    margin-bottom: 300px;
+    margin-bottom: 50px;
 
     iframe{
       width: auto;
