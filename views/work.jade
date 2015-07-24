@@ -1,5 +1,95 @@
 extends layout
 block content
-  .container-fluid.full-height.text-center#work-image.img-back.rel
+  .container-fluid.full-height.text-center#work-image.img-back.rel.work-page
     .shader.full-fit
-    h3.loud.half-down.rel Coming Soon!
+
+    .work-box-holder
+
+      .row.work-box.light.SIRIUS.show
+          .container-fluid
+            .row.front
+              .col-md-6.same-height
+                .work-box-text-holder
+                    h4.loud.work-box-title Sirius Business
+                    p.reading.work-box-blurb 
+                    .view-more-logo#SIRIUS
+                      p view
+                      span.glyphicon.glyphicon-menu-down
+                      p more
+              .col-md-6.same-height
+                .link-logo
+                    a(href = "http://siriusbusiness.com.au/" target="_blank")
+                      span.glyphicon.glyphicon-link
+                .img.img-back.work-box-thumbnail.full-fit.tl(style = 'background-image: url("../images/work-thumbnails/sirius/main.png")')
+                .shader.full-fit
+            .row.back
+                .container-fluid.panels
+                    .row.panel
+                        .col-md-6
+                            .content.writing
+                                h3.heading Front-End
+                                p.reading "Sed ut perspiciatis unde omnis iste <span id = 'boards-pic'>natus</span> error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? 
+                        .col-md-6.thumbs
+                            .content
+                              .img-holder.half.horizontal.t.boards-pic
+                                .img.img-back.work-box-thumbnail.full-fit.tl(style = 'background-image: url("../images/work-thumbnails/sirius/2.png")')
+                              .img-holder.quarter.b.l
+                                .img.img-back.work-box-thumbnail.full-fit(style = 'background-image: url("../images/work-thumbnails/sirius/3.png")')
+                              .img-holder.quarter.b.r
+                                .img.img-back.work-box-thumbnail.full-fit(style = 'background-image: url("../images/work-thumbnails/sirius/8.png")')
+                    .row.panel                     
+                        .col-md-6
+                            .content.writing
+                                h4.heading Back-End
+                        .col-md-6.thumbs
+                            .content
+                              .img-holder.half.vertical.l
+                                .img.img-back.work-box-thumbnail.full-fit.tl(style = 'background-image: url("../images/work-thumbnails/sirius/9.png")')
+                              .img-holder.quarter.t.r
+                                .img.img-back.work-box-thumbnail.full-fit.tl(style = 'background-image: url("../images/work-thumbnails/sirius/5.png")')
+                              .img-holder.quarter.b.r
+                                .img.img-back.work-box-thumbnail.full-fit(style = 'background-image: url("../images/work-thumbnails/sirius/7.png")')
+
+      .row.work-box.light.TFAAG
+          .container-fluid
+            .row.front
+              .col-md-6.same-height
+                .work-box-text-holder
+                    h4.loud.work-box-title The Foot and Ankle Group
+                    p.reading.work-box-blurb 
+                    .view-more-logo#TFAAG
+                      p view
+                      span.glyphicon.glyphicon-menu-down
+                      p more
+              .col-md-6.same-height
+                .link-logo
+                    a(href = "http://siriusbusiness.com.au/" target="_blank")
+                      span.glyphicon.glyphicon-link
+                .img.img-back.work-box-thumbnail.full-fit.tl(style = 'background-image: url("../images/work-thumbnails/tfaag/main.png")')
+                .shader.full-fit
+            .row.back
+                .container-fluid.panels
+                    .row.panel
+                        .col-md-6
+                            .content.writing
+                                h3 Front-End
+                        .col-md-6.thumbs
+                            .content
+                              .img-holder.half.vertical.r
+                                .img.img-back.work-box-thumbnail.full-fit.tl(style = 'background-image: url("../images/work-thumbnails/tfaag/2.png")')
+                              .img-holder.quarter.t.l
+                                .img.img-back.work-box-thumbnail.full-fit(style = 'background-image: url("../images/work-thumbnails/tfaag/3.png")')
+                              .img-holder.quarter.b.l
+                                .img.img-back.work-box-thumbnail.full-fit(style = 'background-image: url("../images/work-thumbnails/tfaag/1.png")')
+                    .row.panel                     
+                        .col-md-6
+                            .content.writing
+                                h3 Back-End
+                        .col-md-6.thumbs
+                            .content
+                              .img-holder.half.horizontal.b
+                                .img.img-back.work-box-thumbnail.full-fit(style = 'background-image: url("../images/work-thumbnails/tfaag/6.png")')
+                              .img-holder.quarter.t.l
+                                .img.img-back.work-box-thumbnail.full-fit.tl(style = 'background-image: url("../images/work-thumbnails/tfaag/4.png")')
+                              .img-holder.quarter.t.r
+                                .img.img-back.work-box-thumbnail.full-fit(style = 'background-image: url("../images/work-thumbnails/tfaag/5.png")')

@@ -40,15 +40,18 @@ $(document).ready(function(){
 	$('body').removeClass('nospinner')
 
 	$('a').click(function(event) {
-	    event.preventDefault();
-	    var href = this.href;
+	    if ($(this).attr('target') != "_blank"){
 
-	     $('body').addClass('nospinner')
-   		 $('body').removeClass("loaded")
+		    event.preventDefault();
+		    var href = this.href;
 
-	    setTimeout(function() {
-	        window.location = href;
-	    },500);
+		     $('body').addClass('nospinner')
+	   		 $('body').removeClass("loaded")
+
+		    setTimeout(function() {
+		        window.location = href;
+		    },500);
+		}
 	});
 
 
@@ -156,8 +159,6 @@ $(document).ready(function(){
 
 	 function zoomFrame(){
 
-	 	console.log('working')
-
 	    var _wrapWidth=$('#wrap').width();
 	    var _frameWidth=$($('#frame')[0].contentDocument).width();
 
@@ -200,6 +201,28 @@ $(document).ready(function(){
 			for (var i = 0; i < 6; i++){
 				setTimeout(inverseColors, i * 200)
 			}
+	});
+	$(".view-more-logo").click(function(){
+
+		var name = $(this).attr("id");
+
+		//check if a box is expanded above 
+		var foundThis = false;
+		var aboveHeight = 50;
+		$(".work-box").each(function(){	
+			if($(this).hasClass(name )) foundThis = true;
+			if($(this).hasClass("show") && !foundThis) {
+				aboveHeight += ($(this).height() - 400);
+			}
+		})
+
+		$(".work-box").removeClass('show');
+		$(".work-box." + name).addClass('show');
+
+		var elementTop = $(".work-box." + name).offset().top - aboveHeight;
+		$("html, body").animate({ scrollTop: elementTop }, 1000);
+
+
 	});
 
 	$(".circle li").hover(function(){
