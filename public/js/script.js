@@ -1,3 +1,17 @@
+
+//google analytics
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-65607859-1', 'auto');
+  ga('send', 'pageview');
+
+
+
+
+//image preloader
 var loader = new PxLoader();
 
 var indexImages = ['bus.jpg', 'bamboo.jpg', 'computer.jpg', 'clouds.jpg']
@@ -35,6 +49,8 @@ loader.addCompletionListener(function() {
 
 loader.start(); 
 
+
+//check for js on preloader
 $(document).ready(function(){
 
 	$('body').removeClass('nospinner')
@@ -52,7 +68,7 @@ $(document).ready(function(){
 	});
 
 
-
+	// animation to trigger on scroll into view
 	var $window = $(window);
 	var win_height_padded = $window.height() * 1.1;
 	var isTouch = Modernizr.touch;
@@ -87,6 +103,8 @@ $(document).ready(function(){
 	     });
 	 }
 
+
+	 // for hiding navigation 
 	 function showHideMidDocument() {
 
 	 	var scrolled = $window.scrollTop();
@@ -118,6 +136,7 @@ $(document).ready(function(){
 	     });
 	 }
 
+	 //for chaning golors of navtoggle and navbar based on background color
 	 function inverseColors(){
 
 	 	var scrolled = $window.scrollTop();
@@ -153,7 +172,7 @@ $(document).ready(function(){
 
 	 }
 
-
+	 // play page spritewars to get right size frame
 	 function zoomFrame(){
 
 	 	console.log('working')
@@ -193,6 +212,8 @@ $(document).ready(function(){
 		setTimeout(inverseColors,800)
 	});
 
+
+	// hide/show navbar with toggle
 	$("#navbarToggle").click(function(){
 		$("#navbarToggle").removeClass('show')
 		$(".nav-link-holder").addClass('show')
@@ -202,6 +223,8 @@ $(document).ready(function(){
 			}
 	});
 
+
+	//change background image on hover
 	$(".circle li").hover(function(){
 
 		var image = $(this).attr("name");
