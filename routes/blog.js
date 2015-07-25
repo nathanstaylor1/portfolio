@@ -29,7 +29,7 @@ router.route('/')
                       //HTML response will render the index.jade file in the views/blogposts folder. We are also setting "blogposts" to be an accessible variable in our jade view
                     html: function(){
                         res.render('blogposts/index', {
-                              title: 'All my posts',
+                              title: 'nst:blog = All posts;',
                               "posts" : posts,
                               "link" : "blogposts"
                           });
