@@ -56,15 +56,16 @@ $(document).ready(function(){
 	$('body').removeClass('nospinner')
 
 	$('a').click(function(event) {
-	    event.preventDefault();
-	    var href = this.href;
 
-	     $('body').addClass('nospinner')
-   		 $('body').removeClass("loaded")
+		var href = this.href;
 
-	    setTimeout(function() {
-	        window.location = href;
-	    },500);
+		    event.preventDefault();
+
+		     $('body').addClass('nospinner')
+	   		 $('body').removeClass("loaded")
+
+		     window.location = href;
+
 	});
 
 
