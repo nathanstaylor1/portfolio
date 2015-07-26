@@ -1,5 +1,71 @@
 extends layout
 block content
-  .container-fluid.full-height.text-center#work-image.img-back.rel
+  .container-fluid.full-height.text-center#work-image.img-back.rel.work-page
     .shader.full-fit
-    h3.loud.half-down.rel Coming Soon!
+
+    .work-box-holder
+
+      .row.work-box.light.SIRIUS
+          .container-fluid
+            .row.front
+              .col-md-6.same-height
+                .work-box-text-holder
+                    h4.loud.work-box-title Sirius Business
+                    p.reading.work-box-blurb 
+                    .view-more-logo#SIRIUS
+                      p view
+                      span.glyphicon.glyphicon-menu-down
+                      p more
+              .col-md-6.same-height
+                .link-logo
+                    a(href = "http://sirius-business.herokuapp.com/" target="_blank")
+                      span.glyphicon.glyphicon-link
+                .img.img-back.work-box-thumbnail.full-fit.tl(style = 'background-image: url("../images/work-thumbnails/sirius/main.png")')
+                .shader.full-fit
+            .row.back
+                .container-fluid.panels
+                    .row.panel
+                        .col-md-6
+                            .content.writing
+                                h3.heading Front-End
+                                p.reading 
+                                  | <strong> Brief:</strong> 
+                                  | A simple business website which conveys the companies message and services and allows for easy contact.
+                                p.reading 
+                                  | <strong> Execution: </strong>
+                                  | I delived a clean and simple design with easy access to navigation. <br> Some key features are:
+                                ul.reading
+                                  li - Seperate <span class = "hover-text" id = 'boards-pic'>pages targetting each customer group</span> with clear and easy navigation.
+                                  li - <span class = "hover-text" id = 'parallax'>Parallax scrolling</span> on the landing page with images chosen to evoke an emotional response.
+                                  li - Testimonials were included using a <span class = "hover-text" id = 'quotes'>bootstrap carousel</span>.
+
+                        .col-md-6.thumbs
+                            .content
+                              .img-holder.half.horizontal.t.boards-pic
+                                .img.img-back.work-box-thumbnail.full-fit.tl(style = 'background-image: url("../images/work-thumbnails/sirius/2.png")')
+                              .img-holder.quarter.b.l.parallax
+                                .img.img-back.work-box-thumbnail.full-fit.tl(style = 'background-image: url("../images/work-thumbnails/sirius/11.png")')
+                              .img-holder.quarter.b.r.quotes
+                                .img.img-back.work-box-thumbnail.full-fit(style = 'background-image: url("../images/work-thumbnails/sirius/8.png")')
+                    .row.panel                     
+                        .col-md-6
+                            .content.writing
+                                h3.heading Back-End
+                                p.reading 
+                                  | <strong> Brief:</strong> 
+                                  | The ability for customers to contact the comany and a way to share useful resources.
+                                p.reading 
+                                  | <strong> Execution </strong>
+                                  | PHP was used for the backend due to existing hosting choice. I delivered:
+                                  ul.reading 
+                                    li - A <span class = "hover-text" id = 'contact-form'>contact form</span> which cleans and validates inputs and sends a contact email.
+                                    li - A <span class = "hover-text" id = 'resource-front'>resources</span> section based on a flat file storage system where users can browse and download files.
+                                    li - The resouces section is powered by a <span class = "hover-text" id = 'resource-back'>custom content management system</span> which has full CRUD capabilites.
+                        .col-md-6.thumbs
+                            .content
+                              .img-holder.half.vertical.l.contact-form
+                                .img.img-back.work-box-thumbnail.full-fit.tl(style = 'background-image: url("../images/work-thumbnails/sirius/9.png")')
+                              .img-holder.quarter.t.r.resource-front
+                                .img.img-back.work-box-thumbnail.full-fit.tl(style = 'background-image: url("../images/work-thumbnails/sirius/5.png")')
+                              .img-holder.quarter.b.r.resource-back
+                                .img.img-back.work-box-thumbnail.full-fit(style = 'background-image: url("../images/work-thumbnails/sirius/7.png")')

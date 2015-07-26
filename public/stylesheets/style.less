@@ -126,6 +126,10 @@ body  * {
   @perspective: 1000;
 
 
+  //work page
+
+  @workToggleTime: 1s;
+
   //blog
 
   @consoleColor: lighten(@black, 10%);
@@ -174,7 +178,7 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
+a, a:visited {
   color: @blue;
 }
 
@@ -182,6 +186,7 @@ a:hover {
   color: @orange;
   cursor: pointer;
 }
+
 
 html {
   position: relative;
@@ -500,12 +505,20 @@ input, textarea {
   background-color: #888;
   background-size: cover;
   z-index: 1;
+  background-position: center center;
+
 }
 .img-back-repeat{
   background-size: auto;
   background-repeat: repeat; 
 }
 
+.tl{
+    background-position: left top;
+}
+.tc{
+    background-position: center top;
+}
 
 .shader{
   background-color: @black;
@@ -741,6 +754,262 @@ input, textarea {
 
 #work-image {
   background-image: url("../images/design.jpg");
+}
+.work-page {
+
+  .work-box-holder{
+    position: relative;
+    z-index: 5;
+    margin-top: 150px;
+    padding: 0px 10vw 5vh 10vw;
+
+    .same-height{
+      height: 400px;
+      padding: 0px;
+      overflow: hidden;
+        &:hover{
+            .work-box-thumbnail{
+              filter: blur(3px)
+            }
+            .shader{
+            opacity: .5;
+            }
+            .link-logo{
+                opacity: 1;
+            }
+        }
+    }
+
+    .work-box{
+      background-color: @white;
+      margin-bottom: 100px;
+      overflow: hidden;
+        .work-box-text-holder{
+            
+            .work-box-title{
+              margin-top: 100px;
+              padding-left: 10px;
+              padding-right: 10px;
+              font-size: 3em;
+              color: @black;
+              margin-bottom: 30px;
+              -webkit-transition: font @workToggleTime, margin-top @workToggleTime;
+              transition: font @workToggleTime, margin-top @workToggleTime;
+            }
+            .view-more-logo{
+              position: relative;
+              z-index: 100;
+              font-family: @readingFont;
+              cursor: pointer;
+              background-color: @black;
+              width: 80px;
+              margin: auto;
+              -webkit-transition: background-color @circleToggleTime, opacity @circleToggleTime;
+              transition: background-color @circleToggleTime, opacity @circleToggleTime;
+
+              *{
+                color: @white;
+                margin-bottom: -2em;
+                -webkit-transition: opacity @circleToggleTime, top @circleToggleTime;
+                transition: opacity @circleToggleTime, top @circleToggleTime;
+              }
+              .glyphicon{
+                font-size: 2em;
+                opacity: 0;
+                color: @black;
+              }
+              &:hover{
+                background-color: transparent;
+                .glyphicon{
+                opacity: 1;
+                top: 1.5em;
+                }
+                p{
+                  opacity: 0;
+                }
+              }
+
+            }
+        }
+        .work-box-thumbnail{
+          position: absolute;
+          z-index: 6;
+
+          -webkit-transition: filter @circleToggleTime;
+          transition: filter @circleToggleTime;
+        }
+        .shader{
+          position: absolute;
+          z-index: 7;
+          background-color: @black;
+          opacity: 0.2;
+          -webkit-transition: opacity @circleToggleTime;
+          transition: opacity @circleToggleTime;
+
+        }
+        .link-logo{
+          position: absolute;
+          z-index: 10;
+          font-size: 30px;
+          top: 45%;
+          left: 45%;
+          opacity: 0;
+          color: @white;
+          -webkit-transition: opacity @circleToggleTime;
+          transition: opacity @circleToggleTime;
+        }
+
+        .back{
+          padding: 0px;
+          margin: 0px;
+          height: 0px;
+          overflow: hidden;
+          -webkit-transition: height @workToggleTime;
+          transition: height @workToggleTime;
+          .panels, .panel, .panel > div{
+            padding: 0px;
+          }
+
+
+          .content{
+            height: 0px;
+            -webkit-transition: height @workToggleTime;
+            transition: height @workToggleTime;
+            padding: 0px;
+            background-color: @white;
+            position: relative;
+            margin: 10px 15px 10px 15px;
+            *{
+              color: @black;
+              opacity: 0;
+              -webkit-transition: opacity @workToggleTime*2;
+              transition: opacity @workToggleTime*2;
+
+            }
+            &.writing{
+              padding: 15px;
+              text-align: left;
+              line-height: 1.5em;
+              h3{
+                background-color: lighten(@black, 20%);
+                padding: 10px;
+                text-align: center;
+                color: @white;
+              }
+              p{
+
+              }
+              span{
+                color: @orange;
+                &:hover{
+                  cursor: default;
+                  background-color: @orange;
+                  color: @white;
+                  padding: 5px;
+                }
+              }
+              *{
+                margin-bottom: 10px;
+              }
+              li {
+                margin-left: 10px;
+              }
+
+              background-color: darken(@white,5%);
+            }
+
+            .img-holder{
+              display: inline-block;
+              position: absolute;
+              overflow: none;
+              border: 3px solid @white;
+              z-index: 10;
+              left: 0px;
+              top: 0px;
+              width: 50%;
+              height: 50%;
+              -webkit-transition: @circleToggleTime;
+              transition: @circleToggleTime;
+              .img{
+                -webkit-transition: @circleToggleTime;
+                transition: @circleToggleTime;
+              }
+              &.half{
+                &.horizontal{
+                  width: 100%;
+                }
+                &.vertical{
+                  height:100%;
+                }
+              }
+              &.t{
+                top:0%;
+              }
+              &.b{
+                top: 50%;
+              }
+              &.l{
+                left: 0%;
+              }
+              &.r{
+                left: 50%;
+              }
+
+              &:hover, &.big{
+                z-index: 100;
+                height: 100%;
+                width: 100%;
+                top: 0%;
+                left: 0%;
+              }
+
+            }
+
+          
+            
+          }
+          .panel{
+            background-color: @white;
+            margin: 0px;
+          }
+
+
+        }
+
+        &.show{
+
+          .work-box-text-holder {
+
+            .work-box-title{
+              margin-top: 150px;
+              font-size: 4.5em;
+            }
+            .view-more-logo{
+              opacity: 0;
+              cursor: default;
+              .glyphicon{
+                top: 300px;
+              }
+            }
+          }
+
+          .back{
+            height: 100%;
+ 
+            .content{
+                height: 380px;
+                *{
+                  opacity: 1;
+                }
+            }
+
+          }
+        }
+
+    }
+  }
+
+
 }
 
   //play
