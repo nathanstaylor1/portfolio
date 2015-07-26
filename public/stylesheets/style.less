@@ -91,7 +91,7 @@ body  * {
 
   //font stacks:
 
-  @loudFont: 'reisregular', "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  @loudFont: 'reisregular', 'just_another_handregular', "Lucida Sans Unicode", "Lucida Grande", sans-serif;
   @loudSize: 10vw;
   @readingFont: 'josefin_slabregular', Tahoma, Geneva, sans-serif ;
   @readingSize: 2em;
@@ -163,8 +163,8 @@ body  * {
 
 .applyAnimation( @animationName ){
   animation-name: @animationName;
-    animation-duration: @duration;
-    animation-iteration-count: infinite;
+  animation-duration: @duration;
+  animation-iteration-count: infinite;
 }
 
 
@@ -1022,6 +1022,7 @@ input, textarea {
     margin: auto;
     width: 100%;
     margin-bottom: 30px;
+    max-width: 100% !important;
   }
 
   cite {
@@ -1134,6 +1135,7 @@ input, textarea {
   background-color: @blue;
   color: white;
   border-radius: 3px;
+  border: none;
 
   &:hover{
     background-color: @orange;
@@ -1270,16 +1272,5 @@ input, textarea {
     letter-spacing: 3px;
   }
 
-}
-
-@media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  #loader-wrapper {
-    display: none;
-  }
-  .loud, .blog-list-heading, .blog-post-heading, .bio-wrap .bio h3{
-    font-family: just_another_handregular, "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-  }
 }
 

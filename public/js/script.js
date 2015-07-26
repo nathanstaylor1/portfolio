@@ -43,8 +43,7 @@ currentImages.forEach(function(image){
 })
 
 loader.addCompletionListener(function() { 
-	console.log("all images loaded")
-	    $('body').addClass('loaded');
+	$('body').addClass('loaded');
 }); 
 
 loader.start(); 
