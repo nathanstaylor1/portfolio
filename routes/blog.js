@@ -20,7 +20,7 @@ router.route('/')
     //GET all blogposts
     .get(function(req, res, next) {
         //retrieve all blogposts from Monogo
-        mongoose.model('BlogPosts').find({}, function (err, posts) {
+        mongoose.model('BlogPosts').find({}, null, {sort: {created: -1}}, function (err, posts) {
               if (err) {
                   return console.error(err);
               } else {
