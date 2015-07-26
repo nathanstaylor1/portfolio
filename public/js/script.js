@@ -55,26 +55,10 @@ $(document).ready(function(){
 	$('body').removeClass('nospinner')
 
 	$('a').click(function(event) {
-<<<<<<< HEAD
 
 		var href = this.href;
 
 		    event.preventDefault();
-=======
-	    if ($(this).attr('target') != "_blank"){
-
-		    event.preventDefault();
-		    var href = this.href;
-
-		     $('body').addClass('nospinner')
-	   		 $('body').removeClass("loaded")
-
-		    setTimeout(function() {
-		        window.location = href;
-		    },500);
-		}
-	});
->>>>>>> work-page
 
 		     $('body').addClass('nospinner')
 	   		 $('body').removeClass("loaded")
