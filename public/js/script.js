@@ -221,8 +221,6 @@ $(document).ready(function(){
 
 		var elementTop = $(".work-box." + name).offset().top - aboveHeight;
 		$("html, body").animate({ scrollTop: elementTop }, 1000);
-
-
 	});
 
 	$(".circle li").hover(function(){
@@ -237,7 +235,23 @@ $(document).ready(function(){
 
 	});
 
+	//work page image sizing
+	$(".hover-text").hover(function(){
+		var name = $(this).attr("id");
+		$("." + name).addClass("big");
+	}, function(){
+		var name = $(this).attr("id");
+		$("." + name).removeClass("big");
+	});
+	
+	$(".thumbs .img-holder").click(function(){
+		$(this).toggleClass("big");
+	})
 
 
+
+	$('.blog-post-content a').each(function(){
+		$(this).attr("target","_blank");
+	})
 
 });
