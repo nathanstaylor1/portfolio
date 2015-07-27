@@ -1,7 +1,7 @@
 var auth = require('basic-auth');
 
 var admins = {
-  'nstay2': { password: 'blog' },
+  admin: { password: process.env.BLOG_PW },
 };
 
 module.exports = function(req, res, next) {
