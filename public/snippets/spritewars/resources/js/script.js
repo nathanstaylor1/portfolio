@@ -1151,12 +1151,12 @@ function runAnimation(frameFunc){
 function varyCharacters(char){
     switch(char.name){
         case "nathan":
-            char.moveSpeed *= 1.2;
-            char.jumpHeight *= 0.9;
+            char.moveSpeed *= 1.05;
+            char.jumpHeight *= 0.95;
         break;
         case "yuriko":
-            char.moveSpeed *= 0.8;
-            char.jumpHeight *= 1.2;
+            char.moveSpeed *= 0.95;
+            char.jumpHeight *= 1.05;
         break;
         case "rina":
             char.moveSpeed *= 1.1;

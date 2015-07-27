@@ -561,94 +561,6 @@ input, textarea {
   }
 }
 
-// Parallax styles 
-
-  .parallax {
-    height: 500px; /* fallback for older browsers */
-    height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-    -webkit-perspective: 300px;
-    perspective: unit(@perspective, px);
-    -webkit-perspective-origin-x: 100%;
-    perspective-origin-x: 100%;
-  }
-
-  .parallax-group {
-    position: relative;
-    height: 500px; /* fallback for older browsers */
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-  }
-
-  body, html {
-    
-  }
-
-  .parallax-layer .content {
-    text-align: center;
-    position: absolute;
-    left: 00%;
-    top: 30%;
-    width: 100%;
-    color: #fafafa;
-  }
-
-//parrallax layer styles
-
-  .parallax__layer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    -webkit-transform-origin-x: 100%;
-    transform-origin-x: 100%;
-  }
-
- .parallax__layer--front {
-    .applyParallax(800);
-    z-index: 6;
-  }
-
-  .parallax__layer--fore {
-    .applyParallax(400);
-    z-index: 5;
-  }
-
-  .parallax-layer-base {
-    .applyParallax(0);
-    z-index: 4;
-  }
-
-  .parallax-layer-back {
-    .applyParallax(-400);
-    z-index: 3;
-  }
-
-  .parallax__layer--deep {
-    .applyParallax(-800);
-    z-index: 2;
-  }
-
-//parrallax group styles
-
-  #group1 {
-    height: 100vh;
-  }
-  #group2 {
-    background-color: #888;
-    height: 50vh;
-  }
-  .parallax__layer {
-    background-size: cover;
-  }
-  .cover {
-    background-color: #489;
-    opacity: 0.5;
-  }
-
-
 //page specific
 
   //home
@@ -954,13 +866,17 @@ input, textarea {
               &.r{
                 left: 50%;
               }
+              &:hover{
+                opacity: 0.5;
+              }
 
-              &:hover, &.big{
+              &.big{
                 z-index: 100;
                 height: 100%;
                 width: 100%;
                 top: 0%;
                 left: 0%;
+                opacity: 1;
               }
 
             }
@@ -997,12 +913,14 @@ input, textarea {
             height: 100%;
  
             .content{
-                height: 380px;
+                height: auto;
                 *{
                   opacity: 1;
                 }
             }
-
+            .thumbs .content{
+              min-height: 400px;
+            }
           }
         }
 
@@ -1054,6 +972,15 @@ input, textarea {
           font-family: @readingFont;
           line-height: 1.5em;
           font-weight: 400;
+        }
+        a{
+          margin: 0px;
+          padding: 0px;
+          color: @blue;
+          &:hover{
+            color: @orange;
+            text-decoration: none;
+          }
         }
     }
 

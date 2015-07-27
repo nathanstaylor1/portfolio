@@ -9,6 +9,13 @@
   ga('send', 'pageview');
 
 
+function isInCache(url)
+{
+  var http = new XMLHttpRequest();
+  http.open('HEAD', url, false);
+  http.send();
+  return http.status;
+}
 
 
 //image preloader
@@ -51,6 +58,9 @@ loader.start();
 
 //check for js on preloader
 $(document).ready(function(){
+   if (isInCache(window.location.href) == "304") {
+        $("body").addClass('loaded');
+    }
 
 	$('body').removeClass('nospinner')
 
@@ -268,10 +278,15 @@ $(document).ready(function(){
 		$(this).toggleClass("big");
 	})
 
+	$window.on("scroll",function(){
+		$(".img-holder").removeClass("big");
+	})
 
 
 	$('.blog-post-content a').each(function(){
 		$(this).attr("target","_blank");
 	})
+
+
 
 });

@@ -75,7 +75,7 @@ function move(obj){
 
 		fall(obj)
 		fly(obj)
-	},40);
+	},50);
 
 }
 
@@ -101,7 +101,7 @@ $(document).ready(function(){
 	setInterval(function(){
 		var current_ball = new Ball(spread(50,100), randomColor(), spread(100,docWidth-100), -100)
 		move(current_ball)
-	},1000);
+	},3000);
 
 });
 

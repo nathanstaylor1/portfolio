@@ -9,11 +9,11 @@ block content
         h4 What is it?
         p   An 8-bit deathmatch. Grab weapons from crates and fight it out to the death.
         h4 How did I make it?
-        p   I created a Javascript game engine using an object oriented approach. 
-        h4 What was challenging?
-        p   Hit detection.
+        p   I created this after reading <a href = "http://eloquentjavascript.net/">Eloquent Javascript</a> as a project to really consolidite my Javascript learning. In short I made a game and physics engine and also make a custom sprite management system. The whole thing is coded with an object oriented approach used to separate concerns.
+        h4 What was challening?      
+        p   Getting the hit detection to work properley took a while. Code organisation was also challening on this project as it got quite large quite quickly.
         h4 What can be improved?
-        p   Menu, level & character select. Add some simple sounds for better user experience. Cross browser testing.
+        p   There are more levels and characters but I haven't made a game menu yet so this would be my number one. I would also like to add some sounds and music to liven up the experience a bit. Obviously making a game using only DOM elements isn't the way to go and a major improvement would be to use an existing Javascript game engine. Becuase of the way it is coded cross browser compatibility is also a bit of a nightmare but I would really like to fixup some of the issues in webkit browsers. 
     #wrap 
       iframe(src = '/play/snippets/spritewars/').light.spritewarsFrame#frame
     .caption-holder.intro-holder
@@ -22,3 +22,4 @@ block content
         h4 Controls:
         p P1: move: WSAD,       attack: SPACE, change weapon: Q & E
         p P2: move: ARROW KEYS, attack: ENTER, change weapon: SHIFT
+        p ** Please use firefox for best experience **

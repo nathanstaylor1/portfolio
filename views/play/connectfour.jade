@@ -7,18 +7,18 @@ block content
       .intro-back.full-fit
       div.reading.intro
         h4 What is it?
-        p   A good old game of connect four! Get four in a line to win. You can play against a friend or the computer AI! I made this when I was in Japan and I wasnted to play connect four but no one ther had ever heard of it.
+        p   A good old game of connect four! Get four in a line to win. You can play against a friend or the computer AI! I made this when I was in Japan and I wanted to play connect four but no one there had ever heard of it.
         h4 How did I make it?
         p  
-          |It is coded in Javascript using an array to represent the board. When a piece is added the array is updated and a DOM element representing the piece is added and animated into the right place. I used css classes to style the pieces and they are sized using viewport units (relative to viewport width) to retain the aspect on different sized screens.<br>
+          |It is coded in Javascript using an array to represent the board. When a piece is added the array is updated and a DOM element representing the piece is added and animated into the right place. I used CSS classes to style the pieces and they are sized using viewport units (relative to viewport width) to retain the aspect on different sized screens.<br>
           |Each time a piece is added a function runs which checks for four pieces in a row and finishes the game if found. The algorithm to check the whole board quickly was fun to write.
         h4 What was challenging?
         p 
-          |This was my first time writing any kind of AI and it proved difficult to get the computer to think (or appear to) like a human. The crux of the code consists of a function which recieves a board array and scans through to determine how advantageous any board configuration is to a player and returns a number (board value). This function is then run for each possible move to determine the best one. <br>
-          |This alone however results in a very stupid computer because it cant think ahead or anticipate the opponets moves at all. So to make the computer think a bit more the function to select the best move is run recursivley. This means that for each possible move the function looks at the opponents best response and then the CPU's best response to that move and so on. This is run to a predetirmened 'depth' (number of responses) and the move which returns the best value is chosen.  <br>
-          |The current settings
+          |This was my first time writing any kind of AI and it proved difficult to get the computer to think (or appear to think) like a human. The crux of the code consists of a function which recieves a board array and scans through to determine how advantageous any board configuration is to a player and returns a number (board value). This function is then run for each possible move to determine the best one. <br>
+          |This alone however results in a very stupid computer because it can't think ahead or anticipate the opponets moves at all. So to make the computer think a bit more the function to select the best move is run recursivley. This means that for each possible move the function looks at the opponents best response and then the CPU's best response to that move and so on. This is run to a predetirmened 'depth' (number of responses) and the move which returns the best value is chosen.  <br>
+          |The current settings runs to a depth of 3 meaning the computer can think 3 moves ahead. This number seemed to give a goob balance between computing time and difficulty.
         h4 What can be improved?
-        p Despite my best efforts the computer still misses some obvious moves, which I think means that the 'board value' function needs to be calibrated better. There is also some repitition in the code which scans the board which needs to be refactored. The 'win' function also doesnt check for a draw so This needs to be updated.
+        p Despite my best efforts the computer still misses some obvious moves, which I think means that the 'board value' function needs to be calibrated better. There is also some repitition in the code which scans the board which needs to be refactored. The 'win' function also doesnt check for a draw so this needs to be updated.
     iframe(src = '/play/snippets/connectfour/').light
     .caption-holder.intro-holder
       .intro-back.full-fit
