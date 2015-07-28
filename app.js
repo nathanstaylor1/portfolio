@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var less = require('less-middleware')
 var auth = require('basic-auth')
 var db = require('./model/db');
 var blog = require('./model/blogposts');
@@ -23,7 +24,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(require('less-middleware')(path.join(__dirname, 'public')));
+app.use(less( path.join(__dirname, 'public'), [], [], [{compress: false}] ) );
 app.use(express.static(path.join(__dirname, 'public')));
 
 

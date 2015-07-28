@@ -1,5 +1,6 @@
 
-//google analytics
+//#----Initialize google analytics---#//
+
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -9,25 +10,22 @@
   ga('send', 'pageview');
 
 
-function isInCache(url)
-{
-  var http = new XMLHttpRequest();
-  http.open('HEAD', url, false);
-  http.send();
-  return http.status;
-}
 
 
-//image preloader
+//#---------Image preloader-----------#//
+
 var loader = new PxLoader();
-
+	
+	//-define images to load for each page
 var indexImages = ['bus.jpg', 'bamboo.jpg', 'computer.jpg', 'clouds.jpg']
 var workImages = ['design.jpg']
 var playImages = ['night-lights.jpg']
 var blogImages = ['textures/cardboard.png']
-
+	
+	//-get page name from url
 var currentPage = window.location.pathname.substring(1,5)
-
+	
+	//select the right images based on page name
 switch(currentPage){
 	case "work":
 	var currentImages = workImages;
@@ -42,111 +40,126 @@ switch(currentPage){
 	var currentImages = indexImages;
 	break;
 }
-
+	//-add images to preloader
 currentImages.forEach(function(image){
 
 	var currentImage = loader.addImage("../images/" + image )
 
 })
 
+	//-listen for complete
 loader.addCompletionListener(function() { 
+	//-add class to hide preloader
 	$('body').addClass('loaded');
 }); 
-
+	//-start loading images
 loader.start(); 
 
 
-//check for js on preloader
-$(document).ready(function(){
-   if (isInCache(window.location.href) == "304") {
-        $("body").addClass('loaded');
+	//- if the image is in cache hide the preloader to prevent page being blocked on back button
+window.onpageshow = function(event) {
+    if (event.persisted) {
+    	$("body").addClass('loaded');
     }
+};
 
-	$('body').removeClass('nospinner')
+//#---------Fix for play/spritewars iframe sizing-----------#//
 
+
+	 function zoomFrame(){
+
+	    var _wrapWidth=$('#wrap').width();
+	    var _frameWidth=$($('#frame')[0].contentDocument).width();
+
+	    if(!this.contentLoaded)
+	      this.initialWidth=_frameWidth;
+	    this.contentLoaded=true;
+	    var frame=$('#frame')[0];
+
+	    var percent=_wrapWidth/this.initialWidth;
+
+	    frame.style.width=100.0/percent+"%";
+	    frame.style.height=100.0/percent+"%";
+
+	    frame.style.zoom=percent;
+	    frame.style.webkitTransform='scale('+percent+')';
+	    frame.style.webkitTransformOrigin='top left';
+	    frame.style.MozTransform='scale('+percent+')';
+	    frame.style.MozTransformOrigin='top left';
+	    frame.style.oTransform='scale('+percent+')';
+	    frame.style.oTransformOrigin='top left';
+
+	    frame.contentWindow.scrollTo(0,100); 
+  	};
+
+
+//# --~~<=>--- READY...FIGHT!!! ---<=>~~-- #//
+
+
+$(document).ready(function(){
+
+    //- fade in the spinner when document is ready.
+	$('body').removeClass('nospinner');
+
+	//- make page fade on link click
 	$('a').click(function(event) {
 
+		//- get link href
 		var href = this.href;
 
-		    event.preventDefault();
+		//- stop ne page loading
+	    event.preventDefault();
 
-		     $('body').addClass('nospinner')
-	   		 $('body').removeClass("loaded")
+	    //- fade in preloader
+	    $('body').addClass('nospinner')
+   		$('body').removeClass("loaded")
 
-		     window.location = href;
+   		//-load new page
+	    window.location = href;
 
 	});
 
 
-	// animation to trigger on scroll into view
+//#---------Trigger animations on scroll-----------#//
+
+	//-- get window dimensions
 	var $window = $(window);
 	var win_height_padded = $window.height() * 1.1;
 	var isTouch = Modernizr.touch;
 	var docHeight = $('footer').offset().top;
-	var buffer = 30
-
-	inverseColors()
-
-	function revealOnScroll() {
-
-	     var scrolled = $window.scrollTop();
-	     $(".reveal-on-scroll:not(.animated)").each(function () {
-
-	       var $this     = $(this)
-	       var offsetTop = $this.offset().top;
-
-	       if (scrolled + win_height_padded > offsetTop) {
-
-	         if ($this.data('timeout')) {
-
-	           window.setTimeout(function(){
-	             $this.addClass('animated ' + $this.data('animation'));
-	           }, parseInt($this.data('timeout'),10));
-
-	         } else {
-
-	           $this.addClass('animated ' + $this.data('animation'));
-
-	         }
-
-	       }
-	     });
-	 }
+	var buffer = 30;
 
 
-	 // for hiding navigation 
-	 function showHideMidDocument() {
+function revealOnScroll() {
 
-	 	var scrolled = $window.scrollTop();
+     var scrolled = $window.scrollTop();
 
-	     $(".show-mid-document").each(function () {
-	       var $this = $(this)
-	       if (scrolled < buffer || scrolled + win_height_padded > docHeight - buffer) {
-	           $this.removeClass('show');
-	       }
-	     });
-	     $(".show-mid-document:not(.show)").each(function () {
-	       var $this = $(this)
-	       if (scrolled > buffer && scrolled + win_height_padded < docHeight - buffer) {
-	           $this.addClass('show');
-	       }
-	     });
+     $(".reveal-on-scroll:not(.animated)").each(function () {
 
-	     $(".hide-mid-document").each(function () {
-	       var $this = $(this)
-	       if (scrolled > buffer && scrolled + win_height_padded < docHeight - buffer) {
-	           $this.removeClass('show');
-	       }
-	     });
-	     $(".hide-mid-document:not(.show)").each(function () {
-	       var $this = $(this)
-	       if (scrolled < buffer || scrolled + win_height_padded > docHeight - buffer) {
-	           $this.addClass('show');
-	       }
-	     });
-	 }
+       var $this     = $(this)
+       var offsetTop = $this.offset().top;
 
-	 //for chaning golors of navtoggle and navbar based on background color
+       if (scrolled + win_height_padded > offsetTop) {
+
+         if ($this.data('timeout')) {
+
+           window.setTimeout(function(){
+             $this.addClass('animated ' + $this.data('animation'));
+           }, parseInt($this.data('timeout'),10));
+
+         } else {
+
+           $this.addClass('animated ' + $this.data('animation'));
+
+         }
+
+       }
+     });
+ }
+
+
+//#---------Change navbar colors based on background area-----------#//
+
 	 function inverseColors(){
 
 	 	var scrolled = $window.scrollTop();
@@ -182,46 +195,70 @@ $(document).ready(function(){
 
 	 }
 
-	 // play page spritewars to get right size frame
-	 function zoomFrame(){
+//#---------Hide navbar and show toggle button mid document-----------#//
 
-	    var _wrapWidth=$('#wrap').width();
-	    var _frameWidth=$($('#frame')[0].contentDocument).width();
+	 function showHideMidDocument() {
 
-	    if(!this.contentLoaded)
-	      this.initialWidth=_frameWidth;
-	    this.contentLoaded=true;
-	    var frame=$('#frame')[0];
+	 	var scrolled = $window.scrollTop();
 
-	    var percent=_wrapWidth/this.initialWidth;
+	     $(".show-mid-document").each(function () {
+	       var $this = $(this)
+	       if (scrolled < buffer || scrolled + win_height_padded > docHeight - buffer) {
+	           $this.removeClass('show');
+	       }
+	     });
+	     $(".show-mid-document:not(.show)").each(function () {
+	       var $this = $(this)
+	       if (scrolled > buffer && scrolled + win_height_padded < docHeight - buffer) {
+	           $this.addClass('show');
+	       }
+	     });
 
-	    frame.style.width=100.0/percent+"%";
-	    frame.style.height=100.0/percent+"%";
+	     $(".hide-mid-document").each(function () {
+	       var $this = $(this)
+	       if (scrolled > buffer && scrolled + win_height_padded < docHeight - buffer) {
+	           $this.removeClass('show');
+	       }
+	     });
+	     $(".hide-mid-document:not(.show)").each(function () {
+	       var $this = $(this)
+	       if (scrolled < buffer || scrolled + win_height_padded > docHeight - buffer) {
+	           $this.addClass('show');
+	       }
+	     });
+	 }
 
-	    frame.style.zoom=percent;
-	    frame.style.webkitTransform='scale('+percent+')';
-	    frame.style.webkitTransformOrigin='top left';
-	    frame.style.MozTransform='scale('+percent+')';
-	    frame.style.MozTransformOrigin='top left';
-	    frame.style.oTransform='scale('+percent+')';
-	    frame.style.oTransformOrigin='top left';
 
-	    frame.contentWindow.scrollTo(0,100); 
-  	};
 
-  	$window.on('resize', zoomFrame)
+//---- Function Calls ---//
+
+	inverseColors()
+
+//#-------Event handlers-----------#//
+	
+
+	//--resize--//
+
+  	$window.on('resize', function(){		
+
+  		if($('#frame')[0] !== undefined) zoomFrame()
+
+  	});
   	$(".spritewarsFrame").on('load', zoomFrame)
 
+
+	//--scroll--//
 
 	$window.on('scroll', function(){
 		revealOnScroll()
 		showHideMidDocument()
 		inverseColors()
+		$(".img-holder").removeClass("big");
 		setTimeout(inverseColors,800)
 	});
 
+	//--clicks--//
 
-	// hide/show navbar with toggle
 	$("#navbarToggle").click(function(){
 		$("#navbarToggle").removeClass('show')
 		$(".nav-link-holder").addClass('show')
@@ -230,6 +267,8 @@ $(document).ready(function(){
 				setTimeout(inverseColors, i * 200)
 			}
 	});
+
+	// view more animations scroll to top of element
 	$(".view-more-logo").click(function(){
 
 		var name = $(this).attr("id");
@@ -244,15 +283,23 @@ $(document).ready(function(){
 			}
 		})
 
+		//open box
 		$(".work-box").removeClass('show');
 		$(".work-box." + name).addClass('show');
 
+		// scroll to top of box
 		var elementTop = $(".work-box." + name).offset().top - aboveHeight;
 		$("html, body").animate({ scrollTop: elementTop }, 1000);
 	});
 
+	$(".thumbs .img-holder").click(function(){
+		//work page image sizing
+		$(this).toggleClass("big");
+	})
 
-	//change background image on hover
+	//--hovers--//
+
+	//front page circle change background image on hover
 	$(".circle li").hover(function(){
 
 		var image = $(this).attr("name");
@@ -274,19 +321,12 @@ $(document).ready(function(){
 		$("." + name).removeClass("big");
 	});
 	
-	$(".thumbs .img-holder").click(function(){
-		$(this).toggleClass("big");
-	})
 
-	$window.on("scroll",function(){
-		$(".img-holder").removeClass("big");
-	})
-
+//#--------- Make all blog post links open in new tab ------#//
 
 	$('.blog-post-content a').each(function(){
 		$(this).attr("target","_blank");
 	})
-
 
 
 });
