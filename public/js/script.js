@@ -18,7 +18,7 @@ var loader = new PxLoader();
 	
 	//-define images to load for each page
 var indexImages = ['bus.jpg', 'bamboo.jpg', 'computer.jpg', 'clouds.jpg']
-var workImages = ['design.jpg']
+var workImages = ['design.jpg', 'work-thumbnails/sirius/main.png']
 var playImages = ['night-lights.jpg']
 var blogImages = ['textures/cardboard.png']
 	
