@@ -564,17 +564,14 @@ function runMatch(p1,p2){
 	} else {
 
 		$("#board tr:first-child > td ").click(function(){
+
 			if(!$("#board").hasClass("won")){
 
 				//check if player is human
 				if (currentPlayer.type == "human"){
 
 					// find the column which was clicked on
-					var child = this;
-					var i = 0;
-					while( (child = child.previousSibling) != null ) 
-					  i++;
-					var column = Math.floor(i) + 1
+					var column = Number($(this).attr("id"));
 
 					if (addPiece(column, currentPlayer.color)) {
 
@@ -630,7 +627,6 @@ function runGame(){
 
 
 $(document).ready(function(){
-
 
 	runGame()
 
