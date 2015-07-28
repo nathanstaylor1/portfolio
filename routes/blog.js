@@ -88,6 +88,7 @@ router.route('/:id')
         res.format({
           html: function(){
               res.render('blogposts/show', {
+                "title": 'nst:blog = ' + post.title,
                 "created" : postCreated,
                 "post" : post,
                 "link" : "blogposts"

@@ -349,11 +349,16 @@ input, textarea {
 
 //navbar and footer //
 
+.header{
+
+}
+
 .navbar{
   background-color: transparent;
   border: none;
   overflow: visible;
   z-index: 1000;
+  pointer-events: none;
 }
 
   //navbar toggle button...................................
@@ -389,6 +394,7 @@ input, textarea {
   &.show div{
     opacity: 1;
     margin-left: 0px;
+
   }
 
 }
@@ -409,9 +415,6 @@ input, textarea {
     a{  
         position: relative;
         font-family: @readingFont;
-        font-size: 16px;
-        padding: 10px;
-        margin: 0px 2vw 0px 2vw;
         opacity: 0;
         top:0px;
 
@@ -446,6 +449,7 @@ input, textarea {
     &.show a{
       opacity: 1;
       top: 50px;
+      pointer-events: auto;
 
     }
 }
@@ -551,8 +555,16 @@ input, textarea {
   margin-bottom: @headingMargin;
 }
 
+@keyframes bounce{
+  0% {margin-top: 0px;}
+  50% {margin-top: 10px;}
+  100%{margin-top: 0px;}
+}
+
 .scroll-down{
   color: @white;
+  font-size: 1.5em;
+  animation: bounce .5s 2 2s;
 }
 
 .inverse{
@@ -639,7 +651,7 @@ input, textarea {
   background-image: url("../images/clouds.jpg");
 }
 
-.home-page > span > .answer{
+.home-page > section > .answer{
   background-color: @white;
   .reading
 }
@@ -1046,10 +1058,11 @@ input, textarea {
           z-index: 7;
           background-color: @white;
           opacity: 1;
+          -webkit-transition: opacity @circleToggleTime;
+          transition: opacity @circleToggleTime;
 
           &:hover{
-            -webkit-transition: opacity @circleToggleTime;
-            transition: opacity @circleToggleTime;
+
             opacity: 0.5;
             cursor: pointer;
           }
@@ -1094,6 +1107,9 @@ input, textarea {
 .blog-list-heading, .blog-post-heading {
   font-family: @loudFont;
   margin-bottom: 10px;
+  a:hover{
+    text-decoration: none;
+  }
 }
 .blog-list-created, .blog-post-created, .comment-created{
   font-family: @readingFont;
@@ -1372,6 +1388,12 @@ input, textarea {
 // media queries
 
 @media (max-width: 5000px) {
+  .nav-link-holder a{
+        font-size: 16px;
+        padding: 10px;
+        margin: 0px 2vw 0px 2vw;
+  }
+
   .answer, .footer{
     font-size: 26px;
   }
@@ -1400,6 +1422,13 @@ input, textarea {
 
 
 @media (max-width: 1000px) {
+
+  .nav-link-holder a{
+        font-size: 16px;
+        padding: 10px;
+        margin: 0px 2vw 0px 2vw;
+  }
+
   .answer, .footer{
     font-size: 20px;
     padding: 10px;
@@ -1433,6 +1462,12 @@ input, textarea {
 }
 
 @media (max-width: 400px) {
+  .nav-link-holder a{
+        font-size: 14px;
+        padding: 10px;
+        margin: 0px 2vw 0px 0vw;
+  }
+
   .answer, .footer{
     font-size: 14px;
     padding: 10px;

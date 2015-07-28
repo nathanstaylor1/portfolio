@@ -13,7 +13,7 @@ block content
             li.post
               h3.blog-list-heading 
                 a(href='/#{link}/#{post._id}') #{post.title}
-              h8.blog-list-created #{post.created.toDateString()}
+              h6.blog-list-created #{post.created.toDateString()}
               .blog-list-content!=post.content.substring(0,300) + ". . ."
               p.blog-list-comments #{post.comments.length} comments
       .col-md-3
@@ -23,7 +23,7 @@ block content
               .col-xs-6
                 h3 About <br> <a href = "/"><span>me</span></a>
               .col-xs-6
-                img(src="/images/headshot.jpg")
+                img(alt="Photo of Nathan Taylor" src="/images/headshot.jpg")
             .row
               .col-xs-12
                 p I'm an aspiring web develper from Melbourne, Australia. I lived in Japan for a few years and love Japanese culture. When I'm not staring at a screen I love to cook, eat and drink!

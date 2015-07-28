@@ -14,14 +14,14 @@ block content
           if post.comments
 
           h4.blog-post-comments-heading Comments:
-            ul.blog-post-comments
-              - each comment in post.comments
-                li
-                  .container.comment-holder
-                      h4
-                        span.comment-author  #{comment.author}
-                        i.comment-created - #{post.created.toDateString()}
-                      p.comment-body #{comment.body}
+          ul.blog-post-comments
+            - each comment in post.comments
+              li
+                .container.comment-holder
+                    h4
+                      span.comment-author  #{comment.author}
+                      i.comment-created - #{post.created.toDateString()}
+                    p.comment-body #{comment.body}
           h4.blog-post-comments-heading Write a comment:
           form#formAddComment(action='/#{link}/#{post._id}/edit',method='post',name='addcomment',enctype='application/x-www-form-urlencoded')
               
@@ -29,7 +29,7 @@ block content
                 p
                   input#inputAuthor(type="text", placeholder="Name", name="author")
               p
-                textarea#inputComment(type="text", placeholder="Your comment...", name="comment")
+                textarea#inputComment(placeholder="Your comment...", name="comment")
               p 
                 input(type='hidden',value='PUT',name='_method')
               p
@@ -43,7 +43,7 @@ block content
               .col-xs-6
                 h3 About <br> <a href = "/"><span>me</span></a>
               .col-xs-6
-                img(src="/images/headshot.jpg")
+                img(alt = "Photo of Nathan Taylor" src="/images/headshot.jpg")
             .row
               .col-xs-12
                 p I'm an aspiring web develper from Melbourne, Australia. I lived in Japan for a few years and love Japanese culture. When I'm not staring at a screen I love to cook, eat and drink!
