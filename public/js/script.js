@@ -50,9 +50,7 @@ currentImages.forEach(function(image){
 })
 
 loader.addCompletionListener(function() { 
-	setTimeout(function(){
-	   $('body').addClass('loaded');
-	},100000)
+	$('body').addClass('loaded');
 }); 
 
 loader.start(); 
